@@ -1,0 +1,154 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@mixin set-border {
+    &:hover{
+        border-top: solid;
+        border-bottom: solid;
+
+    }
+  }
+
+.landing{
+    font-size: 10vw;
+    font-family: 'Bebas Neue', cursive;
+    color: $background-color;
+    display:flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 3px;
+/*     text-shadow:5px  5px   0 $secondary-color,
+                10px 10px  0 $third-color,
+                15px 15px  0 $fourth-color,
+                20px 20px 0  $fifth-color,
+                25px 25px 0  $sixth-color,
+                30px 30px 0  $seventh-color; */
+                text-shadow:5px  5px   0 $text-color,
+                10px 10px  0 $text-color,
+                15px 15px  0 $text-color,
+                20px 20px 0  $text-color,
+                25px 25px 0  $text-color,
+                30px 30px 0  $text-color;
+
+}
+.container{
+    display:flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    text-align: center;
+    height:90vh;
+    width: 100%;}
+.headerNav{
+    
+    height:5vh;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:center;
+    border-top:solid $text-color;
+    border-bottom: solid $text-color;
+
+}
+.linebox{
+    display:flex;
+    border-bottom: solid $text-color;
+    overflow-x: hidden;
+    .side{
+        display:flex;
+        flex-basis:10%;
+        font-size: 1.25em;
+        height:5vh;
+        justify-content: center;
+        list-style-type: none;
+        align-items: center;
+        align-self: center;
+        text-align: center;
+        margin:auto;
+        overflow: hidden;
+        padding: 0;
+        flex-direction: row;
+        font-family: 'Bebas Neue', cursive;
+        background-color: $background-color;
+        z-index: 950;
+    }
+    -moz-box-shadow:    0 0 10px $text-color;
+    -webkit-box-shadow: 0 0 10px $text-color;
+    box-shadow:         0 0 10px $text-color;
+}
+.funbox{
+    box-sizing: border-box;
+    flex-basis:80%;
+    font-size: 1.25em;
+    height:5vh;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    list-style-type: none;
+    overflow: hidden;
+    margin: auto 0;
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'Bebas Neue', cursive;
+    border-left: solid $text-color;
+    border-right: solid $text-color;
+    z-index: 900;
+    overflow-x: hidden;
+    text-align: center;
+    span{
+        text-align: center;
+        padding:60vw;
+        display: flex;
+        align-self: center;
+        align-items: center;
+    }
+     
+}
+nav ul li
+{
+    transition: border .1s linear;
+    @include set-border();
+    border-color: $text-color;
+
+
+
+ a{
+    text-decoration: none; 
+    font-size: 1.25em;
+    color:$text-color;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+    font-weight: 400;
+    padding:2px;
+
+
+}}
+
+.sliding {
+    white-space: nowrap;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    overflow: hidden;
+    overflow-x: hidden;
+    animation: animate 18s linear infinite;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-120vw, 0);
+    }
+  }
