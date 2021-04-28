@@ -35,7 +35,7 @@ const Post = ({ post }) => {
                         <Link to={`/blog/${post.id}`} ><button className={'custom-btn btn-12'}><span>Click!</span><span>Check out post &#x022B3;</span></button></Link>
 
                     </div>
-                    <img src={"http://localhost:5000/" + post.image.url} />
+                    <img src=""/* {"http://localhost:5000/" + post.image.url} */ />
                 </div>
                 : ""}
         </>

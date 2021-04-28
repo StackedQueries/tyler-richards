@@ -53,10 +53,11 @@ const MakePost = (props) => {
 
     }
 
+
     return (
         <div>
             <Header />
-            <form className="make-post" onSubmit={onSubmit} encType="multipart/form-data">
+            <form className="make-post" onSubmit={onSubmit}>
                 <div className="form-section">
                     <label>Title
                     <input

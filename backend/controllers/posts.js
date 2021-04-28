@@ -13,20 +13,14 @@ module.exports.getPost = async (req, res) => {
 }
 
 module.exports.createPost = async (req, res) => {
-    const image = {
-        url: "imgs/" + req.file.filename,
-        filename: req.file.filename
-    }
-    console.log(image)
+
     const reqpost = req.body.post
     const post = new Post({
         title: reqpost.title,
         body: reqpost.body,
-        tags: reqpost.tags,
-        image: image
+        tags: reqpost.tags
     })
 
-    console.log(post)
     await post.save();
     res.send(post);
 }
