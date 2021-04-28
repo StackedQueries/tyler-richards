@@ -1,7 +1,7 @@
 
 import { deletePost } from '../actions/posts';
 import { Link } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 const Post = ({ post }) => {
     const dispatch = useDispatch()
@@ -10,7 +10,6 @@ const Post = ({ post }) => {
         dispatch(deletePost(post.id))
         setVisible(false);
     }
-
     return (
         <>
             {visible ?
@@ -24,6 +23,7 @@ const Post = ({ post }) => {
                                 titleProp: post.title,
                                 bodyProp: post.body,
                                 tagsProp: post.tags
+
                             }
                         }
 
@@ -35,7 +35,7 @@ const Post = ({ post }) => {
                         <Link to={`/blog/${post.id}`} ><button className={'custom-btn btn-12'}><span>Click!</span><span>Check out post &#x022B3;</span></button></Link>
 
                     </div>
-                    <img src="../../public/logo512.png" />
+                    <img src={"http://localhost:5000/" + post.image.url} />
                 </div>
                 : ""}
         </>

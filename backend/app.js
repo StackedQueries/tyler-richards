@@ -48,6 +48,9 @@ mongoose.connect(dbUrl, {
     useFindAndModify: false
 });
 
+
+
+
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
@@ -56,18 +59,8 @@ db.once("open", () => {
 app.use(mongoSanitize({
     replaceWith: '_'
 }))
-app.use(session({
-    secret: 'fraggle-rock',
-    store: new MongoStore({ mongoUrl: dbUrl }),
-    //pick a random string to make the hash that is generated secure
-    resave: false, //required
-    saveUninitialized: false, //required
-    cookie: {
-        httpOnly: false,
-        secure: false,
-    },
-}))
 
+app.use(express.static('public'))
 
 app.use('/posts', postRoutes);
 app.use('/quotes', quoteRoutes);

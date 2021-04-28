@@ -16,7 +16,7 @@ const PostSchema = new Schema({
     title: String,
     body: Object,
     tags: [String],
-    images: [ImageSchema],
+    image: ImageSchema
     /*     author: {
             type: Schema.Types.ObjectId,
             ref: 'User'
@@ -41,4 +41,4 @@ const PostSchema = new Schema({
     }
 }) */
 
-module.exports = mongoose.model('Post', PostSchema);
+module.exports = mongoose.model('Post', PostSchema), mongoose.model('Image', ImageSchema);

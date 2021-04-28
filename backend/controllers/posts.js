@@ -8,13 +8,25 @@ module.exports.index = async (req, res) => {
 }
 
 module.exports.getPost = async (req, res) => {
-    const post = await Post.find({ _id: req.params.id })
+    const post = await Post.find({ _id: req.params.id }).populate('image')
     res.send(post)
 }
 
 module.exports.createPost = async (req, res) => {
-    console.log(req.file)
-    const post = new Post(req.body.post)
+    const image = {
+        url: "imgs/" + req.file.filename,
+        filename: req.file.filename
+    }
+    console.log(image)
+    const reqpost = req.body.post
+    const post = new Post({
+        title: reqpost.title,
+        body: reqpost.body,
+        tags: reqpost.tags,
+        image: image
+    })
+
+    console.log(post)
     await post.save();
     res.send(post);
 }
