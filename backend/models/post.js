@@ -6,7 +6,10 @@ const PostSchema = new Schema({
     title: String,
     body: Object,
     tags: [String],
-    image: Schema.Types.ObjectId
+    image: {
+        type: Schema.Types.ObjectId,
+        ref: 'image'
+    }
     /*     author: {
             type: Schema.Types.ObjectId,
             ref: 'User'
