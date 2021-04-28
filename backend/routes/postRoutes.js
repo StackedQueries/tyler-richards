@@ -7,7 +7,7 @@ const catchAsync = require('../utils/catchAsync');
 const { auth } = require('../middleware')
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-        callback(null, './backend/public/imgs')
+        callback(null, './public/imgs')
     },
     filename: (req, file, callback) => {
         callback(null, file.originalname)
@@ -18,7 +18,7 @@ const upload = multer({ storage })
 
 router.route('/')
     .get(catchAsync(posts.index))
-    .post(auth, catchAsync(posts.createPost))
+    .post(/* auth, */ upload.single('postImage'), catchAsync(posts.createPost))
 
 router.route('/:id')
     .get(catchAsync(posts.getPost))

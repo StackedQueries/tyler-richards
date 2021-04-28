@@ -13,6 +13,7 @@ module.exports.getPost = async (req, res) => {
 }
 
 module.exports.createPost = async (req, res) => {
+    console.log(req.file)
     const post = new Post(req.body.post)
     await post.save();
     res.send(post);
