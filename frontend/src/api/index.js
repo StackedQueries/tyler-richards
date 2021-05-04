@@ -11,6 +11,9 @@ API.interceptors.request.use((req, res) => {
 })
 
 export const fetchPosts = () => API.get('/posts');
+
+export const fetchPost = (id) => API.get(`/posts/${id}`);
+
 export const createPost = (newPost) => API.post('/posts', newPost);
 export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
 export const updatePost = (id, updatedPost) =>
@@ -29,5 +32,5 @@ export const uploadImages = (images) => {
       'Content-Type': 'multipart/form-data'
     }
   })
-  console.log(images)
 }
+export const deleteImage = (id) => API.delete(`/images/${id}`)

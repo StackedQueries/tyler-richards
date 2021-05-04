@@ -9,3 +9,4 @@ export const LOGOUT = 'LOGOUT';
 
 export const IMAGEUPLOAD = "IMAGEUPLOAD"
 export const IMAGEDELETE = "IMAGEDELETE"
+export const IMAGEGET = "IMAGEGET"

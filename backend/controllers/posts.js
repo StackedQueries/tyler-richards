@@ -1,5 +1,6 @@
-const Post = require('../models/post');
+
 const Image = require('../models/image')
+const Post = require('../models/post');
 
 
 module.exports.index = async (req, res) => {
@@ -12,14 +13,17 @@ module.exports.index = async (req, res) => {
 
 module.exports.getPost = async (req, res) => {
     const post = await Post.find({ _id: req.params.id }).populate('image')
+    console.log(post)
     res.send(post)
 }
 
 module.exports.createPost = async (req, res) => {
 
     const reqpost = req.body.post
+    console.log(reqpost)
     try {
-        image = await Image.find(reqpost.image._id)
+        image = await Image.findById(reqpost.image.id)
+        console.log('image found')
     }
     catch {
         image = undefined

@@ -6,33 +6,34 @@ import {
 import Footer from '../Footer';
 import edjsParser from "editorjs-parser";
 
-
+import { getPost } from '../../actions/posts'
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/Header';
-import { getPost } from '../../controllers/posts'
 import '../../styles/post.scss'
 const Post = () => {
     const parser = new edjsParser("");
-
+    const [body, setBody] = useState('loading...')
+    const [post, setPost] = useState('loading')
     const { postId } = useParams();
-    const [post, setPost] = useState([{ title: 'loading' }]);
-    const [body, setBody] = useState("loading...")
 
     useEffect(() => {
         const get = async () => {
-            const currPost = await getPost(postId)
-            await setPost(currPost)
-            await setBody(await parser.parse(currPost[0].body))
-
-        };
+            const post = await getPost(postId)
+            setPost(post)
+            console.log(post)
+            const body = await parser.parse(post.body)
+            setBody(body)
+        }
         get()
+
 
     }, [])
     return (
         <>
             <Header />
-            <img src={"http://localhost:5000/" + post.image.url}></img>
             <div className='page-content'>
-                <h1>{post[0].title}</h1>
+                {post.image?.url ? <img height="100vh" src={"http://localhost:5000/" + post.image.url}></img>
+                    : null}<h1>{post.title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: body }} />
             </div>
             <Link to="/" className='custom-btn btn-12'><span>Click!</span><span>return&#x022B3;</span></Link>

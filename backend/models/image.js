@@ -10,8 +10,9 @@ const ImageSchema = new Schema({
     filename: String
 }, opts);
 
-ImageSchema.virtual('thumbnail').get(function () {
+
+/* ImageSchema.virtual('thumbnail').get(function () {
     return this.url.replace('/upload', '/upload/w_200');
-});
+}); */
 
 module.exports = mongoose.model('Image', ImageSchema);

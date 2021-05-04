@@ -21,12 +21,13 @@ const MakePost = (props) => {
     const data = null;
 
     const loc = useLocation();
-    const { id, titleProp, bodyProp, tagsProp } = loc.state?.post || false;
+    const { id, titleProp, bodyProp, tagsProp, imageProp } = loc.state?.post || false;
 
 
     const [title, setTitle] = useState(titleProp ? titleProp : 'title')
     const [body, setBody] = useState(bodyProp ? bodyProp : 'this is body text')
     const [tags, setTags] = useState(tagsProp ? tagsProp : [])
+    const [image, setImage] = useState(imageProp ? imageProp : null)
     const history = useHistory();
 
 
@@ -41,9 +42,9 @@ const MakePost = (props) => {
         console.log(savedData)
         console.log(parser.parse(savedData))
         if (id) {
-            dispatch(updatePost(id, { post: { title, body: savedData, tags } }))
+            dispatch(updatePost(id, { post: { title, body: savedData, tags, image } }))
         } else {
-            dispatch(createPost({ post: { title, body: savedData, tags } }))
+            dispatch(createPost({ post: { title, body: savedData, tags, image } }))
 
         }
 
@@ -56,9 +57,11 @@ const MakePost = (props) => {
     return (
         <div>
             <Header />
-            <ImageManager />
+            <ImageManager setImage={setImage} />
             <form className="make-post" onSubmit={onSubmit}>
                 <div className="form-section">
+                    {image && <div><h6>image is</h6> <img width="100px" src={"http://localhost:5000/" + image.url} />
+                    </div>}
                     <label>Title
                     <input
                             type='text'

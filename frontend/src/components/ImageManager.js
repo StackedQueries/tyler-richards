@@ -1,13 +1,23 @@
 import Image from './Image'
-import { uploadImages } from '../actions/images'
+import { deleteImage, getImages, uploadImages } from '../actions/images'
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-const ImageManager = () => {
+import { useDispatch, useSelector } from 'react-redux';
+const ImageManager = ({ setImage }) => {
     const [name, setName] = useState("");
     const [selectedFile, setSelectedFile] = useState(null);
 
     const dispatch = useDispatch();
+
+    const images = useSelector((state) => state.images);
+    useEffect(() => {
+        dispatch(getImages())
+    }, [images])
+
+    const onDelete = async (e, imgID) => {
+        e.preventDefault()
+        dispatch(deleteImage(imgID))
+    }
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -15,10 +25,18 @@ const ImageManager = () => {
     }
     return (
         <div className="page-content">
+            {images.map((img) =>
+                <div>
+                    <input type="radio" id={img.id} name="images" value={img.id} onChange={() => setImage(img)} />
+                    <img width="100px" src={"http://localhost:5000/" + img.url} />
+                    <button onClick={(e) => onDelete(e, img.id)}>Delete</button>
+
+                </div>)}
+
             <form
                 onSubmit={onSubmit}
                 method="POST"
-                enctype="multipart/form-data"
+                encType="multipart/form-data"
             >
                 <div class="form-group">
                     <input
@@ -29,7 +47,7 @@ const ImageManager = () => {
                         onChange={(e) => setSelectedFile(e.target.files)}
                     />
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
     )

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Image = require('./image')
 const opts = { toJSON: { virtuals: true } };
 
 const PostSchema = new Schema({
@@ -8,7 +9,7 @@ const PostSchema = new Schema({
     tags: [String],
     image: {
         type: Schema.Types.ObjectId,
-        ref: 'image'
+        ref: 'Image'
     }
     /*     author: {
             type: Schema.Types.ObjectId,

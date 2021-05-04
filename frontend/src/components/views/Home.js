@@ -13,11 +13,7 @@ const Home = () => {
 
     const posts = useSelector((state) => state.posts);
     useEffect(() => {
-        const get = async () => {
-
-            dispatch(getPosts())
-        };
-        get()
+        dispatch(getPosts())
     }, [posts])
 
 
