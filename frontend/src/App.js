@@ -13,6 +13,7 @@ import MakePost from './components/views/MakePost'
 import Login from './components/views/Login'
 import React, { useState, useEffect } from 'react';
 import Dashboard from './components/views/Dashboard'
+import ImageManager from './components/ImageManager'
 import 'cors'
 import './styles/app.scss'
 
@@ -26,7 +27,7 @@ function App() {
       <Route path='/about' render={About} />
       <Route path='/makePost' render={props => <MakePost />} />
       <Route path='/contact' render={Contact} />
-
+      <Route path='/testing' render={props => <ImageManager />} />
       <Route path='/Login' render={props => <Login />} />
       <Route path='/dashboard' render={Dashboard} />
       <Route path='/' exact render={props => <Home />} />

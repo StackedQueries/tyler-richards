@@ -10,6 +10,11 @@ const Post = ({ post }) => {
         dispatch(deletePost(post.id))
         setVisible(false);
     }
+    const [img, setImg] = useState(false)
+    useEffect(() => {
+        setImg(post.image?.url ? "http://localhost:5000/" + post.image.url : "https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80")
+
+    }, [post])
     return (
         <>
             {visible ?
@@ -22,7 +27,8 @@ const Post = ({ post }) => {
                                 id: post.id,
                                 titleProp: post.title,
                                 bodyProp: post.body,
-                                tagsProp: post.tags
+                                tagsProp: post.tags,
+                                image: post.image
 
                             }
                         }
@@ -35,7 +41,7 @@ const Post = ({ post }) => {
                         <Link to={`/blog/${post.id}`} ><button className={'custom-btn btn-12'}><span>Click!</span><span>Check out post &#x022B3;</span></button></Link>
 
                     </div>
-                    <img src=""/* {"http://localhost:5000/" + post.image.url} */ />
+                    <img src={img} />
                 </div>
                 : ""}
         </>

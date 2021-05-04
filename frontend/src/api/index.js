@@ -19,3 +19,15 @@ export const deletePost = (id) => API.delete(`/posts/${id}`);
 
 export const signIn = (formData) => API.post('/users/signin', formData);
 export const signUp = (formData) => API.post('/users/signup', formData);
+
+export const fetchImages = () => API.get("/images/");
+export const uploadImages = (images) => {
+  const formData = new FormData();
+  formData.append('images', images);
+  API.post("/images/", formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+  console.log(images)
+}

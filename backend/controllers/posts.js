@@ -1,8 +1,11 @@
 const Post = require('../models/post');
+const Image = require('../models/image')
+
 
 module.exports.index = async (req, res) => {
     const posts = await Post.find({}) //{ createdOn: { $lte: request.createdOnBefore } }
         .limit(req.body.amount || 10)
+        .populate('image')
     //.sort( '-createdOn' )
     res.send(posts)
 }
@@ -15,10 +18,18 @@ module.exports.getPost = async (req, res) => {
 module.exports.createPost = async (req, res) => {
 
     const reqpost = req.body.post
+    try {
+        image = await Image.find(reqpost.image._id)
+    }
+    catch {
+        image = undefined
+    }
+
     const post = new Post({
         title: reqpost.title,
         body: reqpost.body,
-        tags: reqpost.tags
+        tags: reqpost.tags,
+        image
     })
 
     await post.save();

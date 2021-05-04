@@ -3,6 +3,7 @@ const Image = require('../models/image');
 const fs = require('fs')
 module.exports.uploadArray = async (req, res) => {
     images = []
+    console.log(req.files)
     for (img of req.files) {
         const image = new Image({
             url: "imgs/" + img.filename,

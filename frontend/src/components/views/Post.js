@@ -30,6 +30,7 @@ const Post = () => {
     return (
         <>
             <Header />
+            <img src={"http://localhost:5000/" + post.image.url}></img>
             <div className='page-content'>
                 <h1>{post[0].title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: body }} />

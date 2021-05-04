@@ -24,3 +24,4 @@ startMongo.bat
 TODO
 backend/node_modules/**
 backend/public/imgs/**
+1.code-workspace

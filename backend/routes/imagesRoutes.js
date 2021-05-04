@@ -23,7 +23,7 @@ const upload = multer({ storage })
 
 router.route('/')
     .get(catchAsync(images.index))
-    .post(/* auth,  */upload.array('images'), images.uploadArray)
+    .post(/* auth,  */ upload.array('images'), images.uploadArray)
 
 
 router.route('/:id')

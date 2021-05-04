@@ -1,13 +1,12 @@
 import Header from '../Header';
-import Footer from '../Footer';/* 
-import { makePost, updatePost } from '../../controllers/posts'; */
+import Footer from '../Footer';
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
 import EditorJs from 'react-editor-js';
 import { EDITOR_JS_TOOLS } from '../../controllers/editorTools'
 import edjsParser from "editorjs-parser";
-
+import ImageManager from "../ImageManager";
 import { useDispatch } from 'react-redux';
 import { createPost, updatePost } from '../../actions/posts';
 
@@ -57,6 +56,7 @@ const MakePost = (props) => {
     return (
         <div>
             <Header />
+            <ImageManager />
             <form className="make-post" onSubmit={onSubmit}>
                 <div className="form-section">
                     <label>Title
@@ -87,6 +87,8 @@ const MakePost = (props) => {
                             data={body} />;
                     </label>
                 </div>
+                <button type="button" className='custom-btn btn-12' onClick={() => history.push('/')}>
+                    <span>Click!</span><span>go back &#x022B3;</span></button>
                 <button type='submit' className='custom-btn btn-12'>
                     <span>Click!</span><span>submit post &#x022B3;</span></button>
             </form>
