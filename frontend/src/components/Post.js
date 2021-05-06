@@ -2,7 +2,7 @@
 import { deletePost } from '../actions/posts';
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 const Post = ({ post }) => {
     const dispatch = useDispatch()
     const [visible, setVisible] = useState(true);
@@ -10,30 +10,37 @@ const Post = ({ post }) => {
         dispatch(deletePost(post.id))
         setVisible(false);
     }
+
+    const user = useSelector((state) => state.auth);
+    const isAdmin = user.authData?.result.status
     const [img, setImg] = useState(false)
     useEffect(() => {
         setImg(post.image?.url ? "http://localhost:5000/" + post.image.url : "https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80")
 
-    }, [post])
+    }, [])
+
     return (
         <>
             {visible ?
                 <div className="post-section">
-                    <Link onClick={onDelete}>Delete Post</Link>
-                    <Link to={{
-                        pathname: "/makePost",
-                        state: {
-                            post: {
-                                id: post.id,
-                                titleProp: post.title,
-                                bodyProp: post.body,
-                                tagsProp: post.tags,
-                                image: post.image
+                    {isAdmin ?
+                        <div>
+                            <Link onClick={onDelete}>Delete Post</Link>
+                            <Link to={{
+                                pathname: "/makePost",
+                                state: {
+                                    post: {
+                                        id: post.id,
+                                        titleProp: post.title,
+                                        bodyProp: post.body,
+                                        tagsProp: post.tags,
+                                        image: post.image
 
-                            }
-                        }
+                                    }
+                                }
 
-                    }}> Edit Post</Link>
+                            }}> Edit Post</Link></div> : null}
+
                     <div className="info">
                         <h6>
                             {post.title}{' '}

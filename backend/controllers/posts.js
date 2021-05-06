@@ -8,6 +8,7 @@ module.exports.index = async (req, res) => {
         .limit(req.body.amount || 10)
         .populate('image')
     //.sort( '-createdOn' )
+    console.log('posts sent')
     res.send(posts)
 }
 

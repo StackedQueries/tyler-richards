@@ -14,7 +14,7 @@ const Home = () => {
     const posts = useSelector((state) => state.posts);
     useEffect(() => {
         dispatch(getPosts())
-    }, [posts])
+    }, [])
 
 
     return (

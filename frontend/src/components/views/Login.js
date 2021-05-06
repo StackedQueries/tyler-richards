@@ -14,9 +14,8 @@ const initialState = { firstName: '', lastName: '', email: '', password: '', con
 const Login = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-
-
-    const [isSignup, setIsSignup] = useState(false);
+    const [isLogin, setIsLogin] = useState(true)
+    const [passMatch, setPassMatch] = useState(null)
     const [form, setForm] = useState(initialState);
 
     /*     const googleSuccess = async (res) => {
@@ -34,7 +33,7 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("submitted")
-        if (isSignup) {
+        if (!isLogin) {
             dispatch(signup(form, history));
         } else {
             dispatch(signin(form, history));
@@ -54,18 +53,50 @@ const Login = () => {
 
             <Header />
             <div className="page-content">
-                <h1>{isSignup ? 'Signup' : 'Register'}</h1>
+                <h1>{isLogin ? 'Signup' : 'Register'}</h1>
                 <form onSubmit={handleSubmit}>
+                    {isLogin ? null :
+                        <div>
+                            <label>
+                                <p>First Name</p>
+                                <input type="text" name="firstName" onChange={handleChange} />
+                            </label>
+                            <label>
+                                <p>Last Name</p>
+                                <input type="text" name="lastName" onChange={handleChange} />
+                            </label>
+                        </div>
+
+                    }
                     <label>
-                        <p>email</p>
+                        <p>Email</p>
                         <input type="text" name="email" onChange={handleChange} />
                     </label>
                     <label>
                         <p>Password</p>
                         <input type="password" name="password" onChange={handleChange} />
                     </label>
+                    {isLogin ? null :
+                        <div>
+                            <label>
+                                <p>Verify Password</p>
+                                <input type="password" name="verifyPassword" onChange={(e) => {
+                                    if (e.target.value !== form.password) {
+                                        setPassMatch(false)
+                                        console.log('doesnt match')
+                                    } else {
+                                        setPassMatch(true)
+                                        console.log('it matches')
+                                    }
+                                }} />
+                            </label>
+
+                        </div>
+
+                    }
                     <div>
                         <button type="submit">Submit</button>
+                        <button type="button" onClick={() => setIsLogin(!isLogin)}>{isLogin ? "Register" : "Login"}</button>
                     </div>
 
                 </form>
