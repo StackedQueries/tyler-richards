@@ -33,7 +33,7 @@ app.use(express.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/tyler-richards';
+const dbUrl = process.env.DB_URL || 'mongodb://mongo:27017/tyler-richards';
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
