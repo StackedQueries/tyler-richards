@@ -11,7 +11,7 @@ services:
       - ./client/:/usr/src/app
       - /usr/src/app/node_modules
   api:
-    image: api-server
+    image: api
     ports:
       - "5000:5000"
     networks:
