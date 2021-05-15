@@ -18,4 +18,4 @@ build-production:
 	cd backend && $(MAKE) build
 
 run-production:
-	set ENV=production docker-compose -f docker-compose-production.yml up
+	ENV=production docker-compose -f docker-compose-production.yml up
