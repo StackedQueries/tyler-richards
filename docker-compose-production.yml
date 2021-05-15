@@ -9,7 +9,7 @@ services:
     networks:
       - mern-app
     volumes:
-      - caddy-data:/data
+      - caddy-data:/data:rw
       - caddy-config:/config
   api:
     image: api
