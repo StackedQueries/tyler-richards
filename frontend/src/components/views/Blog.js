@@ -17,7 +17,7 @@ const Blog = () => {
             dispatch(getPosts())
         };
         get()
-    }, [posts])
+    }, [])
 
     return (
         <div>

@@ -1,0 +1,27 @@
+version: "3"
+services:
+  react-app:
+    image: react-app-production:${ENV}
+    restart: unless-stopped
+    ports: 
+      - "80:80"
+      - "443:443"
+    networks:
+      - mern-app
+    volume:
+      - caddy-data:/data
+      - caddy-config:/config
+  api:
+    image: api
+    restart: unless-stopped
+    env_file: ./backend/config/${ENV}.env
+    ports:
+      - "5000:5000"
+    networks:
+      - mern-app
+networks:
+  mern-app:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local

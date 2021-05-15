@@ -25,3 +25,6 @@ TODO
 backend/node_modules/**
 backend/public/imgs/**
 1.code-workspace
+backend/config/production.env
+backend/config/local.env
+backend/config/dev.env

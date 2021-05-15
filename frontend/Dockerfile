@@ -7,4 +7,8 @@ RUN npm i
 COPY . .
 EXPOSE 3000
 
-CMD ["npm", "start"]
+
+ENV REACT_APP_BASE_URL = http://localhost:5000/api
+
+
+CMD ["yarn", "start"]

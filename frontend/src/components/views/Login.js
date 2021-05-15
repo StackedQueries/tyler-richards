@@ -53,7 +53,7 @@ const Login = () => {
 
             <Header />
             <div className="page-content">
-                <h1>{isLogin ? 'Signup' : 'Register'}</h1>
+                <h1>{isLogin ? 'Login!' : 'Register'}</h1>
                 <form onSubmit={handleSubmit}>
                     {isLogin ? null :
                         <div>
