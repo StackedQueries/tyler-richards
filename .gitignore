@@ -28,3 +28,4 @@ backend/public/imgs/**
 backend/config/production.env
 backend/config/local.env
 backend/config/dev.env
+localMakefile
