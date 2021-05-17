@@ -38,3 +38,7 @@ networks:
 volumes:
   mongo-data:
     driver: local
+  caddy-data:
+    driver: local
+  caddy-config:
+    driver: local
