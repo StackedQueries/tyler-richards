@@ -6,11 +6,11 @@ services:
     ports: 
       - "80:80"
       - "443:443"
-    networks:
-      - mern-app
     volumes:
       - caddy-data:/data
       - caddy-config:/config
+    networks:
+      - mern-app
   api:
     image: api
     restart: unless-stopped
@@ -19,7 +19,6 @@ services:
       - "5000:5000"
     networks:
       - mern-app
-
 networks:
   mern-app:
     driver: bridge
