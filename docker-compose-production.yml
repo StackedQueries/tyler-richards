@@ -19,22 +19,10 @@ services:
       - "5000:5000"
     networks:
       - mern-app
-    depends_on:
-      - mongo
-  mongo:
-    image: mongo
-    ports:
-      - "27017:27017"
-    networks:
-      - mern-app
-    volumes:
-      - mongo-data:/data/db
+
 networks:
   mern-app:
     driver: bridge
-volumes:
-  mongo-data:
-    driver: local
   caddy-data:
     driver: local
   caddy-config:
