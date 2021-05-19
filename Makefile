@@ -1,5 +1,5 @@
 run-dev:
-	docker-compose -f docker-compose-dev.yml up 
+	set ENV=dev&& docker-compose -f docker-compose-dev.yml up 
 
 build-dev:
 	cd frontend && $(MAKE) build-dev
