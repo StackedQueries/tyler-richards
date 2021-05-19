@@ -1,4 +1,7 @@
 
+{
+    auto_https off
+}
 
 http://localhost:80 {
     root * /srv

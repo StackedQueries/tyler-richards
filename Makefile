@@ -11,7 +11,7 @@ build-local:
 	cd backend && $(MAKE) build
 
 run-local:
-	set ENV=local&& docker-compose -f docker-compose-production.yml up
+	ENV=local docker-compose -f docker-compose-production.yml up
 
 build-production:
 	cd frontend && $(MAKE) build-production

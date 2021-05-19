@@ -1,4 +1,4 @@
-tyler-richards.com:443 {
+https://www.tyler-richards.com:443 {
     tls sid.tyler@tyler-richards.com
     root * /srv
     route {
