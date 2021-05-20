@@ -1,5 +1,5 @@
 import Header from '../Header';
-import Footer from '../Footer';
+import Footer from '../partials/Footer';
 
 import { useDispatch } from 'react-redux';
 import React, { useState, useEffect } from 'react';

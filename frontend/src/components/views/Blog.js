@@ -2,7 +2,7 @@ import Posts from '../Posts'
 
 import Header from '../../components/Header';
 import React, { useState, useEffect } from 'react';
-import Footer from '../Footer';
+import Footer from '../partials/Footer';
 import { Link } from "react-router-dom";
 
 import { getPosts } from '../../actions/posts';

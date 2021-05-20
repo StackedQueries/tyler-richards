@@ -1,6 +1,6 @@
 import Posts from '../Posts';
 
-import Footer from '../Footer';
+import Footer from '../partials/Footer';
 import Header from '../../components/Header';
 import { getPosts } from '../../controllers/posts'
 import React, { useState, useEffect } from 'react';

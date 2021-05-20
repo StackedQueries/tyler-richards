@@ -1,5 +1,5 @@
 import Header from '../Header';
-import Footer from '../Footer';
+import Footer from '../partials/Footer';
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from "react-router-dom"
 import { useHistory } from 'react-router-dom'

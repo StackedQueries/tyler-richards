@@ -25,21 +25,8 @@ const Post = ({ post }) => {
                 <div className="post-section">
                     {isAdmin ?
                         <div>
-                            <Link onClick={onDelete}>Delete Post</Link>
-                            <Link to={{
-                                pathname: "/makePost",
-                                state: {
-                                    post: {
-                                        id: post.id,
-                                        titleProp: post.title,
-                                        bodyProp: post.body,
-                                        tagsProp: post.tags,
-                                        image: post.image
-
-                                    }
-                                }
-
-                            }}> Edit Post</Link></div> : null}
+                            <Link to={""} onClick={onDelete}>Delete Post</Link>
+                            <Link to={`/MakePost/${post.id}`}> Edit Post</Link></div> : null}
 
                     <div className="info">
                         <h6>

@@ -1,7 +1,7 @@
 
 
 import Header from '../../components/Header';
-import Footer from '../Footer';
+import Footer from '../partials/Footer';
 const Contact = () => {
     return (
         <div>
