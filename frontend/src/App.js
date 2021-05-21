@@ -25,6 +25,7 @@ function App() {
       <Route path="/blog/:postId" render={props => <Post />} />
       <Route path='/blog' exact render={props => <Blog />} />
       <Route path='/about' render={About} />
+      <Route path='/updatePost/:postId' render={props => <MakePost />} />
       <Route path='/makePost' render={props => <MakePost />} />
       <Route path='/contact' render={Contact} />
       <Route path='/testing' render={props => <ImageManager />} />

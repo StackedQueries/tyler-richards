@@ -20,6 +20,8 @@ export const updatePost = (id, updatedPost) =>
   API.put(`/posts/${id}`, updatedPost);
 export const deletePost = (id) => API.delete(`/posts/${id}`);
 
+export const getQuote = async () => (await API.get(`/quotes`))
+
 export const signIn = (formData) => API.post('/users/signin', formData);
 export const signUp = (formData) => API.post('/users/signup', formData);
 

@@ -38,7 +38,7 @@ const ImageManager = ({ setImage }) => {
                 method="POST"
                 encType="multipart/form-data"
             >
-                <div class="form-group">
+                <div className="form-group">
                     <input
                         type="file"
                         name="images"

@@ -1,7 +1,7 @@
 import '../styles/landing.scss'
 import Nav from './Nav'
 import React, { useState, useEffect, useRef } from "react";
-import { getQuote } from '../controllers/quotes';
+import { getQuote } from '../api';
 /* 
 import { animate } from '../scripts/dvd' */
 const Landing = () => {
@@ -15,7 +15,8 @@ const Landing = () => {
 
     useEffect(() => {
         const fetchQuote = async () => {
-            setQuote(await getQuote());
+            const q = await getQuote()
+            setQuote(q.data);
         }
         fetchQuote();
 

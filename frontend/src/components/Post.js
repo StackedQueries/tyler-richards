@@ -26,7 +26,7 @@ const Post = ({ post }) => {
                     {isAdmin ?
                         <div>
                             <Link to={""} onClick={onDelete}>Delete Post</Link>
-                            <Link to={`/MakePost/${post.id}`}> Edit Post</Link></div> : null}
+                            <Link to={`/updatePost/${post.id}`}> Edit Post</Link></div> : null}
 
                     <div className="info">
                         <h6>
