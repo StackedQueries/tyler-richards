@@ -1,9 +1,9 @@
-FROM node:16-slim
+FROM node:15
 
 WORKDIR /usr/src/app
 
 COPY ./package.json ./
-RUN npm i
+RUN yarn install
 COPY . .
 EXPOSE 5000
 

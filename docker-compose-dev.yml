@@ -10,10 +10,10 @@ services:
       - mern-app
     volumes:
         - ./frontend/:/usr/src/app
-        - /usr/src/app/node_modules
   api:
     image: api
     build: ./backend/
+    env_file: ./backend/config/dev.env
     ports:
       - "5000:5000"
     networks:
