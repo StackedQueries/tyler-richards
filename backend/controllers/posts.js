@@ -54,6 +54,11 @@ module.exports.deletePost = async (req, res) => {
     if (post) {
         await Post.findByIdAndDelete(req.params.id)
     }
-
     res.send(post);
+}
+
+module.exports.getTag = async (req, res) => {
+    const { tag } = req.params;
+    posts = await Post.find({tags:{$in:[tag]}})
+    res.send(posts)
 }

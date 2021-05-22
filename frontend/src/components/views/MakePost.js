@@ -62,13 +62,8 @@ const MakePost = (props) => {
             dispatch(createPost({ post: { title, body: savedData, tags, image } }))
 
         }
-
         return history.push('/')
-
-
     }
-
-
     return (
         <div>
             <Header />

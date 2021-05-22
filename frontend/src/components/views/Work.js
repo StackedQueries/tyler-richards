@@ -19,7 +19,6 @@ const Work = () => {
 
     return (
         <div>
-
             <Header />
             <div className='page-content'>
                 <h1 className='page-subheader'>Projects</h1>
