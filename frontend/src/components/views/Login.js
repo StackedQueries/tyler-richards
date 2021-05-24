@@ -17,6 +17,7 @@ const Login = () => {
     const [isLogin, setIsLogin] = useState(true)
     const [passMatch, setPassMatch] = useState(null)
     const [form, setForm] = useState(initialState);
+    const [auth, setAuth ] = useState(true)
 
     /*     const googleSuccess = async (res) => {
             const result = res?.profileObj;
@@ -30,13 +31,17 @@ const Login = () => {
                 console.log(error);
             }
         } */
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("submitted")
         if (!isLogin) {
             dispatch(signup(form, history));
         } else {
-            dispatch(signin(form, history));
+            try {
+                setAuth(await dispatch(signin(form, history)));
+            } catch (error) {
+                console.log(error)
+            }
         }
     };
 
@@ -53,7 +58,7 @@ const Login = () => {
 
             <Header />
             <div className="page-content">
-                <h1>{isLogin ? 'Login!' : 'Register'}</h1>
+                <h1>{isLogin ? 'Login' : 'Register'}</h1>
                 <form onSubmit={handleSubmit}>
                     {isLogin ? null :
                         <div>
@@ -94,6 +99,8 @@ const Login = () => {
                         </div>
 
                     }
+                    {!auth ? <p>Login has failed. Please try again</p>: null}
+
                     <div>
                         <button type="submit">Submit</button>
                         <button type="button" onClick={() => setIsLogin(!isLogin)}>{isLogin ? "Register" : "Login"}</button>

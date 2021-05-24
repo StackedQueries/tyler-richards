@@ -6,7 +6,7 @@ const { auth, admin } = require('../middleware')
 
 router.post('/signin', signin);
 router.post('/signup', signup)
-router.post('/test', /* auth, */ admin, (req, res) => {
+router.post('/test',  auth,  admin, (req, res) => {
     res.send('auth verified')
 })
 router.post('/isAdmin', auth, (req, res) => {

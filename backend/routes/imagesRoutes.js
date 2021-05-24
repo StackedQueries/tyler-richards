@@ -23,11 +23,11 @@ const upload = multer({ storage })
 
 router.route('/')
     .get(catchAsync(images.index))
-    .post(/* auth,  */ upload.array('images'), images.uploadArray)
+    .post( auth, upload.array('images'), images.uploadArray)
 
 
 router.route('/:id')
     .get(catchAsync(images.getImage))
-    .delete(/* auth,  */catchAsync(images.deleteImage));
+    .delete( auth, catchAsync(images.deleteImage));
 
 module.exports = router;
