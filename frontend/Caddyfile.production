@@ -1,5 +1,14 @@
-https://www.tyler-richards.com:443 {
-    tls sid.tyler@tyler-richards.com
+
+(blacklist) {
+  @blocked {
+    path *.htm *.html *.shtml *.php *.action *.do *.jsp *.jspx *.asp *.aspx
+  }
+  respond @blocked 444
+}
+
+
+tyler-richards.com {
+    tls tyler@tyler-richards.com
     root * /srv
     route {
         reverse_proxy /api* api:5000
@@ -7,3 +16,5 @@ https://www.tyler-richards.com:443 {
         file_server
     }
 }
+
+
