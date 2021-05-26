@@ -27,3 +27,4 @@ volumes:
     driver: local
   caddy-config:
     driver: local
+    

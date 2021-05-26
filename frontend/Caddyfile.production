@@ -6,7 +6,6 @@
   respond @blocked 444
 }
 
-
 tyler-richards.com {
     tls tyler@tyler-richards.com
     root * /srv
