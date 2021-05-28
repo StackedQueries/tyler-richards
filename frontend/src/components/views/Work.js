@@ -1,7 +1,7 @@
 import Posts from '../Posts';
 
-import Footer from '../partials/Footer';
-import Header from '../../components/Header';
+import Footer from '../Footer';
+import Header from '../Header';
 import { getPosts } from '../../controllers/posts'
 import React, { useState, useEffect } from 'react';
 const Work = () => {

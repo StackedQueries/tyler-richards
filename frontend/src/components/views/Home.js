@@ -3,7 +3,7 @@ import Landing from '../Landing';
 import '../../styles/landing.scss';
 import { useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
-import Footer from '../partials/Footer'
+import Footer from '../Footer'
 import { Route, Link, withRouter } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getPosts } from '../../actions/posts';

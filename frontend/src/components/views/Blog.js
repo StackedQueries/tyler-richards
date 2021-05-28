@@ -1,8 +1,8 @@
 import Posts from '../Posts'
 
-import Header from '../../components/Header';
+import Header from '../Header';
 import React, { useState, useEffect } from 'react';
-import Footer from '../partials/Footer';
+import Footer from '../Footer';
 import { Link } from "react-router-dom";
 
 import { getPosts } from '../../actions/posts';

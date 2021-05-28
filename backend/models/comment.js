@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const opts = { toJSON: { virtuals: true } };
 
 const CommentSchema = new Schema({
     title: String,
@@ -19,6 +22,12 @@ const CommentSchema = new Schema({
 }, opts);
 
 
+PostSchema.virtual('currLikes',async function (doc){
+    if(doc){
+        return doc.likedBy.length;
+    }
+})
+
 
  CommentSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
@@ -30,4 +39,4 @@ const CommentSchema = new Schema({
     }
 }) 
 
-module.exports = mongoose.model('Post', PostSchema);
+module.exports = mongoose.model('Comment', CommentSchema);

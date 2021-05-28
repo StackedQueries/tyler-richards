@@ -3,7 +3,7 @@ import {
     Link,
     useParams
 } from "react-router-dom";
-import Footer from '../partials/Footer';
+import Footer from '../Footer';
 import edjsParser from "editorjs-parser";
 
 import { getPost } from '../../actions/posts'
