@@ -1,6 +1,6 @@
 
 
-import Header from '../../components/Header';
+import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 const Contact = () => {
     return (
