@@ -48,14 +48,10 @@ const MakePost = (props) => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
-
-        if (!body) {
-            alert('Please add body')
-            return
-        }
         const savedData = await instanceRef.current.save()
         console.log(savedData)
         console.log(parser.parse(savedData))
+        if (parser.parse(savedData))
         if (postId) {
             dispatch(updatePost(postId, { post: { title, body: savedData, tags, image } }))
         } else {

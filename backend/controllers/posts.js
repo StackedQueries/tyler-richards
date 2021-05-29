@@ -4,8 +4,14 @@ const Post = require('../models/post');
 
 
 module.exports.index = async (req, res) => {
-    const posts = await Post.find({}) //{ createdOn: { $lte: request.createdOnBefore } }
-        .limit(req.body.amount || 10)
+    tag = req.query.tag
+    let request = {}
+    // if (tag){
+    //     request = {tags : {$in:[tag]}}
+    // }
+    const posts = await Post.find(request)
+     //{ createdOn: { $lte: request.createdOnBefore } }
+        //.limit(req.body.amount || 10)
         .populate('image')
     //.sort( '-createdOn' )
     console.log('posts sent')
@@ -55,10 +61,4 @@ module.exports.deletePost = async (req, res) => {
         await Post.findByIdAndDelete(req.params.id)
     }
     res.send(post);
-}
-
-module.exports.getTag = async (req, res) => {
-    const { tag } = req.params;
-    posts = await Post.find({tags:{$in:[tag]}})
-    res.send(posts)
 }
