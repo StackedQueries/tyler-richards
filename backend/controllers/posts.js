@@ -1,6 +1,7 @@
 
 const Image = require('../models/image')
 const Post = require('../models/post');
+const Tag = require ('../models/tag')
 
 
 //GETS ALL POSTS (IF TAG QUERY, GET ALL POSTS WITH TAG))
@@ -38,12 +39,16 @@ module.exports.createPost = async (req, res) => {
         image = undefined
     }
 
-    const post = new Post({
-        title: reqpost.title,
-        body: reqpost.body,
-        tags: reqpost.tags,
-        image
-    })
+    const post = new Post(reqpost)
+    console.log(post)
+
+
+    // const post = new Post({
+    //     title: reqpost.title,
+    //     body: reqpost.body,
+    //     tags: reqpost.tags,
+    //     image
+    // })
 
     await post.save();
     res.send(post);

@@ -6,6 +6,6 @@ const catchAsync = require('../utils/catchAsync');
 //QUOTE ROUTE
 
 router.route('/')
-    .get(quotes.index)
+    .get(catchAsync(quotes.index))
 
 module.exports = router;
