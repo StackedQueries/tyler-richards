@@ -3,6 +3,7 @@ const Image = require('../models/image')
 const Post = require('../models/post');
 
 
+//GETS ALL POSTS (IF TAG QUERY, GET ALL POSTS WITH TAG))
 module.exports.index = async (req, res) => {
     tag = req.query.tag
     let request = {}
@@ -18,14 +19,15 @@ module.exports.index = async (req, res) => {
     res.send(posts)
 }
 
+//GET POST BY ID
 module.exports.getPost = async (req, res) => {
     const post = await Post.find({ _id: req.params.id }).populate('image')
     console.log(post)
     res.send(post)
 }
 
+//CREATE POST
 module.exports.createPost = async (req, res) => {
-
     const reqpost = req.body.post
     console.log(reqpost)
     try {
@@ -47,6 +49,7 @@ module.exports.createPost = async (req, res) => {
     res.send(post);
 }
 
+//UPDATE POST
 module.exports.updatePost = async (req, res) => {
     const { id } = req.params;
     const post = await Post.findByIdAndUpdate(id, { ...req.body.post })
@@ -54,6 +57,7 @@ module.exports.updatePost = async (req, res) => {
     res.send(post);
 }
 
+//DELETE POST
 module.exports.deletePost = async (req, res) => {
     const post = await Post.find({ _id: req.params.id })
 

@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const opts = { toJSON: { virtuals: true } };
 
+//IMAGE MODEL
 
 const ImageSchema = new Schema({
 

@@ -4,13 +4,16 @@ const User = require('../models/user');
 
 const secret = process.env.JWT_SECRET;
 
+
+//SIGN IN
 module.exports.signin = async (req, res) => {
     const { email, password } = req.body;
 
     try {
         const oldUser = await User.findOne({ email });
 
-        if (!oldUser) return res.status(404).json({ message: "User doesn't exist" });
+        //if (!oldUser) return res.status(404).json({ message: "User doesn't exist" }); 
+        //POSSIBLE REMOVAL
 
         const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
 
@@ -25,6 +28,7 @@ module.exports.signin = async (req, res) => {
     }
 };
 
+//SIGNUP
 module.exports.signup = async (req, res) => {
     const { email, password, firstName, lastName } = req.body;
     console.log(email, password, firstName, lastName)

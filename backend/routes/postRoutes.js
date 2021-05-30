@@ -4,6 +4,8 @@ const posts = require('../controllers/posts');
 const catchAsync = require('../utils/catchAsync');
 const { auth, admin } = require('../middleware')
 
+//POST ROUTES
+
 router.route('/')
     .get( catchAsync( posts.index ))
     .post( auth, posts.createPost)

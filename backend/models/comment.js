@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const opts = { toJSON: { virtuals: true } };
 
+//COMMENT MODEL
+
 const CommentSchema = new Schema({
     title: String,
     body: Object,

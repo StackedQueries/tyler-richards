@@ -7,7 +7,8 @@ const catchAsync = require('../utils/catchAsync');
 const { v4: uuidv4 } = require('uuid');
 const { auth } = require('../middleware')
 
-
+// IMAGE STORAGE
+//TODO: MOVE TO DIFF FILE
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
         callback(null, './public/imgs')
@@ -17,10 +18,10 @@ const storage = multer.diskStorage({
     }
 })
 
-
 const upload = multer({ storage })
 
 
+//IMAGE ROUTES
 router.route('/')
     .get(catchAsync(images.index))
     .post( auth, upload.array('images'), images.uploadArray)
