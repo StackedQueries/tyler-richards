@@ -8,7 +8,7 @@ const { auth, admin } = require('../middleware')
 
 router.route('/')
     .get( catchAsync( posts.index ))
-    .post( /*auth,*/ posts.createPost)
+    .post( auth, admin, posts.createPost)
 router.route('/:id')
     .get(catchAsync(posts.getPost))
     .put(auth, admin, catchAsync(posts.updatePost))
