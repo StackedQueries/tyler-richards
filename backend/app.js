@@ -10,8 +10,8 @@ const mongoose = require('mongoose');
 const { json } = require('express');
 const postRoutes = require('./routes/postRoutes')
 const quoteRoutes = require('./routes/quoteRoutes')
-
-const imagesRoutes = require('./routes/imagesRoutes')
+const tagRoutes = require('./routes/tagRoutes')
+const imageRoutes = require('./routes/imageRoutes')
 const cors = require('cors');
 const catchAsync = require('./utils/catchAsync');
 const app = express();
@@ -57,7 +57,8 @@ app.use(express.static('public'))
 app.use('/posts', postRoutes);
 app.use('/quotes', quoteRoutes);
 app.use('/users', userRoutes);
-app.use('/images', imagesRoutes);
+app.use('/tags', tagRoutes);
+app.use('/images', imageRoutes);
 
 app.get('/test', (req, res) => {
     console.log(req.body);      // your JSON
