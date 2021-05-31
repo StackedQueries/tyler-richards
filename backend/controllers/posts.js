@@ -6,7 +6,7 @@ const Tag = require ('../models/tag')
 
 //GETS ALL POSTS (IF TAG QUERY, GET ALL POSTS WITH TAG))
 module.exports.index = async (req, res) => {
-    tag = req.query.tag
+    tag = req.query.tagName
     let request = {}
     // if (tag){
     //     request = {tags : {$in:[tag]}}
