@@ -40,7 +40,7 @@ mongoose.connect(dbUrl, {
     useFindAndModify: false
 });
 
-console.log(`JWT SECRET CHECK: ${process.env.JWT_SECRET.length > 5 ? "PASSED" : "FAILED"}}`)
+console.log(`JWT SECRET CHECK: ${process.env.JWT_SECRET.length > 5 ? "PASSED" : "FAILED"}`)
 
 
 const db = mongoose.connection;

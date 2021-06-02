@@ -5,7 +5,7 @@ COPY ./package.json ./
 COPY ./yarn.lock ./
 
 RUN yarn install
-
+RUN npm rebuild node-sass
 COPY . .
 EXPOSE 3000
 
