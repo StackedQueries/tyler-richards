@@ -1,5 +1,6 @@
 @import './variables.scss';
 @import './buttons.scss';
+@import './content-card.scss';
 *{
     margin:0;
     padding:0;
@@ -97,4 +98,13 @@ footer {
 }
 .center-text{
   text-align: center;
+}
+.page-section{
+  padding: 5vh;
+  width: 100%;
+}
+.row{
+  display:flex;
+  justify-content: space-around;
+  margin: auto;
 }
