@@ -10,3 +10,7 @@ export const LOGOUT = 'LOGOUT';
 export const IMAGEUPLOAD = "IMAGEUPLOAD"
 export const IMAGEDELETE = "IMAGEDELETE"
 export const IMAGEGET = "IMAGEGET"
+
+export const TAGGET = 'TAGGET';
+export const TAGDELETE = 'TAGDELETE';
+export const TAGCREATE = 'TAGCREATE';

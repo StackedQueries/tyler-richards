@@ -9,8 +9,9 @@ module.exports.index = async (req, res) => {
 //CREATE TAG
 module.exports.createTag = async (req, res) => {
     const tag = new Tag(req.body.tag);
+    console.log(req.body)
     console.log(tag)
-    await tag.save()
+    //await tag.save()
     res.send(tag)
     
 }

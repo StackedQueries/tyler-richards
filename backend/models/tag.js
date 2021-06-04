@@ -6,7 +6,7 @@ const opts = { toJSON: { virtuals: true } };
 
 const tagSchema = new Schema({
     tagName: String,
-    color: Object,
+    //color: Object,
     creationDate: Date
 }, opts);
 

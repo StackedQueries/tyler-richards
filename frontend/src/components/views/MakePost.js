@@ -9,6 +9,7 @@ import edjsParser from "editorjs-parser";
 import ImageManager from "../ImageManager";
 import { useDispatch } from 'react-redux';
 import { createPost, updatePost } from '../../actions/posts';
+import { getTags, createTag, deleteTag} from '../../actions/tags'
 import { getPost } from '../../actions/posts';
 
 
@@ -42,6 +43,7 @@ const MakePost = (props) => {
     const [title, setTitle] = useState('title')
     const [body, setBody] = useState(null)
     const [tags, setTags] = useState([])
+    const [newTag, setNewTag] = useState(null)
     const [image, setImage] = useState(null)
     const history = useHistory();
 
@@ -60,10 +62,34 @@ const MakePost = (props) => {
         }
         return history.push('/')
     }
+
+    const sendTag = e => {
+
+        e.preventDefault()
+        console.log(newTag)
+        if (newTag){
+            dispatch(createTag({ tag: {tagName: newTag}}))
+        }
+
+    }
+
     return (
         <div>
             <Header />
             <ImageManager setImage={setImage} />
+            <form className="tagManager" onSubmit={sendTag}>
+            <div className="form-section">
+                    <label>Add Tag
+                    <input
+                            type='text'
+                            placeholder='Add tag'
+                            onChange={(e) => setNewTag(e.target.value)}
+                        />
+                    </label>
+                    <button>Add New Button</button>
+                </div>
+            </form>
+
             <form className="make-post" onSubmit={onSubmit}>
                 <div className="form-section">
                     {image && <div><h6>image is</h6> <img width="100px" src={"http://localhost:5000/" + image.url} />
@@ -79,11 +105,10 @@ const MakePost = (props) => {
 
                 </div>
                 <div className="form-section">
-                    <label>body
+                    <label>Add Tag
                     <input
                             type='text'
                             placeholder='Add tag'
-                            value={tags}
                             onChange={(e) => setTags(e.target.value)}
                         />
                     </label>

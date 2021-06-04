@@ -36,3 +36,7 @@ export const uploadImages = (images) => {
   })
 }
 export const deleteImage = (id) => API.delete(`/images/${id}`)
+
+export const getTags = () => API.get('/tags')
+export const createTag = (formData) => API.post('/tags', formData)
+export const deleteTag = (id) => API.delete(`/tags/${id}`)

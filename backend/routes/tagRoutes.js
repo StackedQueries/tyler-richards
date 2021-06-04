@@ -11,5 +11,4 @@ router.route('/')
     .post( auth, admin, catchAsync(tags.createTag))
 router.route('/:id')
     .delete(auth, admin, catchAsync(tags.deleteTag));
-
 module.exports = router;
