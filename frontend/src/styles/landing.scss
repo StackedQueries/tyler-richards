@@ -18,6 +18,8 @@
     justify-content: center;
     align-self: center;
     align-items: center;
+    
+    flex-grow : 3;
     text-align: center;
     font-weight: 700;
     letter-spacing: 3px;
@@ -35,11 +37,11 @@
     align-self: center;
     align-items: center;
     text-align: center;
-    height:90vh;
+    height: 90vh;
     width: 100%;}
 .headerNav{
     
-    height:5vh;
+    height:40px;
     width: 100%;
     box-sizing: border-box;
     display: flex;
@@ -57,11 +59,12 @@
     display:flex;
     border-bottom: solid $text-color;
     overflow-x: hidden;
+    
     .side{
         display:flex;
         flex-basis:10%;
         font-size: 1.25em;
-        height:5vh;
+        height:40px;
         justify-content: center;
         list-style-type: none;
         align-items: center;
@@ -83,7 +86,7 @@
     box-sizing: border-box;
     flex-basis:80%;
     font-size: 1.25em;
-    height:5vh;
+    height:40px;
     display: flex;
     align-self: center;
     align-items: center;
@@ -146,3 +149,16 @@ nav ul li
       transform: translate(-120vw, 0);
     }
   }
+
+  .full-landing{
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    margin-bottom: 20px;
+  }
+  
+  .bottom{
+    width: 100%;
+    position:absolute;
+    bottom:0;
+    }

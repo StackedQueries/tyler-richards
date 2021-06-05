@@ -22,7 +22,7 @@ const Post = ({ post }) => {
     return (
         <>
             {visible ?
-                <div className="post-section">
+                <div>
                     {isAdmin ?
                         <div>
                             <Link to={""} onClick={onDelete}>Delete Post</Link>

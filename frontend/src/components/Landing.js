@@ -2,8 +2,6 @@ import '../styles/landing.scss'
 import Nav from './Nav'
 import React, { useState, useEffect, useRef } from "react";
 import { getQuote } from '../api';
-/* 
-import { animate } from '../scripts/dvd' */
 const Landing = () => {
 
     const locale = 'en';
@@ -36,18 +34,20 @@ const Landing = () => {
 
     return (
 
-        <div >
+        <div className="full-landing">
             <div className="container">
                 <h1 className="landing">
                     Tyler Richards
                 </h1>
             </div>
-            <Nav classItems="headerNav" />
-            <div className='linebox'>
-                <p className='side'>{date}</p>
-                <p className='funbox '><span className="sliding">{quote.q} - {quote.a}</span><span className="sliding">{quote.q} - {quote.a}</span></p>
+            <div className="bottom">
+                <Nav classItems="headerNav" />
+                <div className='linebox'>
+                    <p className='side'>{date}</p>
+                    <p className='funbox '><span className="sliding">{quote.q} - {quote.a}</span><span className="sliding">{quote.q} - {quote.a}</span></p>
 
-                <p className='side'>{time}</p>
+                    <p className='side'>{time}</p>
+                </div>
             </div>
         </div>
     )

@@ -57,13 +57,13 @@ header{
     12px 12px 0  $text-color;
     Link{
 
-        color:$primary-color;
+        color:$text-color;
         text-decoration: none;
     }
 
 }
 
-h3, h1{
+h1, h2, h3, h4, h5, h6{
   
   font-family: 'Bebas Neue', cursive;
 }
@@ -81,8 +81,13 @@ footer {
     }
 }
 .page-subheader{
-    font-size: 2em;
-    margin:.5vh;
+    font-size: 2.5em;
+    text-align: left;
+    justify-content: left;
+    width:100%;
+    border-bottom: solid;
+    
+  margin-bottom: 10px;
 }
 
 .section-heading {
@@ -100,11 +105,24 @@ footer {
   text-align: center;
 }
 .page-section{
-  padding: 5vh;
+  margin: 20px;
   width: 100%;
 }
 .row{
   display:flex;
-  justify-content: space-around;
-  margin: auto;
+  justify-content: space-between;
+  width:100%;
+  margin-top: 10px;
+}
+.see-more{
+  text-align: right;
+  width:100%;
+  font-family: 'Bebas Neue';
+  font-size:1.5em;
+  display:inline-block;
+  letter-spacing: 1px;
+  color:$accent-color;
+}
+.see-more:hover{
+  color:$accent-hover;
 }
