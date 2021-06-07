@@ -11,8 +11,9 @@ const ContentCard = ({ post }) => {
                 </h4 >
                 <p className="card-text">
                     test</p>
-                <Link to={`/blog/${post.id}`} ><button className="button">Read More  {'>>'}</button></Link>
 
+                {post.id && <Link to={`/blog/${post.id}`} ><button className="button">Read More  {'>>'}</button></Link>
+                }
             </div>
         </div>
     )

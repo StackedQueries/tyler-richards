@@ -7,59 +7,58 @@ import EditorJs from 'react-editor-js';
 import { EDITOR_JS_TOOLS } from '../../controllers/editorTools'
 import edjsParser from "editorjs-parser";
 import ImageManager from "../ImageManager";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createPost, updatePost } from '../../actions/posts';
-import { getTags, createTag, deleteTag} from '../../actions/tags'
+import { getTags, createTag, deleteTag } from '../../actions/tags'
 import { getPost } from '../../actions/posts';
 
 
 
 const MakePost = (props) => {
-
     const parser = new edjsParser(undefined);
 
     const dispatch = useDispatch();
     const instanceRef = useRef(null)
-    const data = null;
+
+    const [title, setTitle] = useState('title')
+    const [body, setBody] = useState(null)
+    const [postTags, setPostTags] = useState([])
+    const [newTag, setNewTag] = useState(null)
+    const [image, setImage] = useState(null)
+    const history = useHistory();
 
     const { postId } = useParams();
-
+    const tags = useSelector((state) => state.tags);
     useEffect(() => {
         const get = async () => {
+            console.log('test')
+            await dispatch(getTags())
             if (postId) {
                 const post = await getPost(postId)
                 console.log(post)
                 setBody(post.body)
                 setTitle(post.title)
-                setTags(post.tags)
+                setPostTags(post.tags)
                 setImage(post.setImage)
             }
         }
         get()
-
-
     }, [])
-
-    const [title, setTitle] = useState('title')
-    const [body, setBody] = useState(null)
-    const [tags, setTags] = useState([])
-    const [newTag, setNewTag] = useState(null)
-    const [image, setImage] = useState(null)
-    const history = useHistory();
-
 
     const onSubmit = async (e) => {
         e.preventDefault()
+        console.log(postTags)
         const savedData = await instanceRef.current.save()
         console.log(savedData)
         console.log(parser.parse(savedData))
         if (parser.parse(savedData))
-        if (postId) {
-            dispatch(updatePost(postId, { post: { title, body: savedData, tags, image } }))
-        } else {
-            dispatch(createPost({ post: { title, body: savedData, tags, image } }))
+            if (postId) {
+                console.log("tags:" + postTags)
+                dispatch(updatePost(postId, { post: { title, body: savedData, tags: postTags, image } }))
+            } else {
+                dispatch(createPost({ post: { title, body: savedData, tags: postTags, image } }))
 
-        }
+            }
         return history.push('/')
     }
 
@@ -67,10 +66,27 @@ const MakePost = (props) => {
 
         e.preventDefault()
         console.log(newTag)
-        if (newTag){
-            dispatch(createTag({ tag: {tagName: newTag}}))
+        if (newTag) {
+            dispatch(createTag({ tag: { tagName: newTag } }))
         }
 
+    }
+
+    const tagChange = async e => {
+
+        if (e.target.checked) {
+            console.log("this item is checked")
+            await setPostTags([e.target.id, ...postTags])
+        }
+        if (!e.target.checked) {
+            console.log(postTags)
+            await setPostTags(postTags.filter((value, index, arr) => {
+                console.log(value, e.target.value)
+                return value !== e.target.id
+            }))
+        }
+
+        console.log(postTags)
     }
 
     return (
@@ -78,7 +94,7 @@ const MakePost = (props) => {
             <Header />
             <ImageManager setImage={setImage} />
             <form className="tagManager" onSubmit={sendTag}>
-            <div className="form-section">
+                <div className="form-section">
                     <label>Add Tag
                     <input
                             type='text'
@@ -86,7 +102,7 @@ const MakePost = (props) => {
                             onChange={(e) => setNewTag(e.target.value)}
                         />
                     </label>
-                    <button>Add New Button</button>
+                    <button>Create new Tag</button>
                 </div>
             </form>
 
@@ -105,13 +121,24 @@ const MakePost = (props) => {
 
                 </div>
                 <div className="form-section">
+
                     <label>Add Tag
-                    <input
-                            type='text'
-                            placeholder='Add tag'
-                            onChange={(e) => setTags(e.target.value)}
-                        />
                     </label>
+                    {tags.map((tag, index) => <label> <input
+                        type='checkbox'
+                        key={index}
+                        placeholder='Add tag'
+                        id={tag._id}
+                        name={tag.tagName}
+                        onChange={(e) => tagChange(e)}
+                        key={index}
+                        checked={postTags.includes(tag._id)}
+
+                    /> {tag.tagName}</label>)}
+
+
+
+
                 </div>
                 <div className="form-section">
                     {body || !postId ? <label>body
@@ -126,6 +153,7 @@ const MakePost = (props) => {
                 <button type='submit' className='custom-btn btn-12'>
                     <span>Click!</span><span>submit post &#x022B3;</span></button>
             </form>
+
             <Footer />
         </div>
     )

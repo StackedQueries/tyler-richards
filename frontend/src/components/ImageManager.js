@@ -12,7 +12,7 @@ const ImageManager = ({ setImage }) => {
     const images = useSelector((state) => state.images);
     useEffect(() => {
         dispatch(getImages())
-    }, [images])
+    }, [])
 
     const onDelete = async (e, imgID) => {
         e.preventDefault()

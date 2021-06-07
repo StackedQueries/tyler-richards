@@ -4,6 +4,7 @@ import * as api from '../api/index.js';
 export const getTags = () => async (dispatch) => {
   try {
     const { data } = await api.getTags();
+    console.log(data)
     dispatch({ type: TAGGET, payload: data });
   } catch (error) {
     console.log(error);
