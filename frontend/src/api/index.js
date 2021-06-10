@@ -13,6 +13,7 @@ API.interceptors.request.use((req, res) => {
 export const fetchPosts = () => API.get('/posts');
 
 export const fetchPost = (id) => API.get(`/posts/${id}`);
+export const fetchPostsByTag = (tag) => API.get(`/posts/?tagName=${tag}`)
 
 export const createPost = (newPost) => API.post('/posts', newPost);
 export const likePost = (id) => API.patch(`/posts/${id}/likePost`);

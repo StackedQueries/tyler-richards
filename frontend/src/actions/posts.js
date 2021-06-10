@@ -20,6 +20,17 @@ export const getPost = async (id) => {
   }
 }
 
+
+export const getPostsbyTag = async (tag) => {
+  try {
+
+    const { data } = await api.fetchPostsByTag(tag);
+    return data
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export const createPost = (post) => async (dispatch) => {
   try {
     console.log(post)

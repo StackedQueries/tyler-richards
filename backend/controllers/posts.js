@@ -1,20 +1,24 @@
 
 const Image = require('../models/image')
 const Post = require('../models/post');
-const Tag = require ('../models/tag')
+const Tag = require('../models/tag')
 
 
 //GETS ALL POSTS (IF TAG QUERY, GET ALL POSTS WITH TAG))
 module.exports.index = async (req, res) => {
     tag = req.query.tagName
+    console.log(tag)
     let request = {}
-    // if (tag){
-    //     request = {tags : {$in:[tag]}}
-    // }
+    if (tag) {
+        tagID = await Tag.find({ tagName: tag })
+        request = { tags: tagID[0]._id }
+
+    }
     const posts = await Post.find(request)
-     //{ createdOn: { $lte: request.createdOnBefore } }
+        //{ createdOn: { $lte: request.createdOnBefore } }
         //.limit(req.body.amount || 10)
         .populate('image')
+        .populate('tags')
     //.sort( '-createdOn' )
     console.log('posts sent')
     res.send(posts)

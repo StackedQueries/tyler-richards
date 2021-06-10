@@ -1,18 +1,15 @@
 import Posts from '../Posts';
-
+import { getPostsbyTag } from '../../actions/posts';
 import Footer from '../Footer';
 import Header from '../Header';
-import { getPosts } from '../../controllers/posts'
 import React, { useState, useEffect } from 'react';
 const Work = () => {
-    const [posts, setPosts] = useState([]);
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
         const get = async () => {
-            const { postsFromServer, projectsFromServer } = await getPosts();
-            setPosts(postsFromServer);
-            setProjects(projectsFromServer);
+            const projects = await getPostsbyTag("project");
+            setProjects(projects);
         };
         get()
     }, [])
