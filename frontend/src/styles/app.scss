@@ -128,3 +128,12 @@ footer {
 .see-more:hover{
   color:$accent-hover;
 }
+.project-title{
+  color: $background-color;
+opacity: 1;
+font: normal normal normal 10vw Bebas Neue;
+text-shadow: -1px 1px 0 $text-color,
+1px 1px 0 $text-color,
+1px -1px 0 $text-color,
+-1px -1px 0 $text-color;
+}

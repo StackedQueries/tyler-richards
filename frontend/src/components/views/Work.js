@@ -3,6 +3,7 @@ import { getPostsbyTag } from '../../actions/posts';
 import Footer from '../Footer';
 import Header from '../Header';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 const Work = () => {
     const [projects, setProjects] = useState([]);
 
@@ -19,7 +20,11 @@ const Work = () => {
             <Header />
             <div className='page-content'>
                 <h1 className='page-subheader'>Projects</h1>
-                {projects && projects.length > 0 ? <Posts posts={projects} /> : <p>No projects Currently</p>}
+                {projects && projects.length > 0 ?
+                    projects.reverse().map((project, index) => {
+                        return <Link to={`/blog/${project.id}`} key={index} className='project-title'>{project.title}</Link>
+                    })
+                    : <p>No projects Currently</p>}
             </div>
             <Footer />
         </div>

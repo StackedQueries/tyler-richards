@@ -1,6 +1,7 @@
 import Posts from '../Posts';
 import Landing from '../Landing';
 import '../../styles/landing.scss';
+import { getPostsbyTag } from '../../actions/posts';
 import { useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import Footer from '../Footer'
@@ -14,6 +15,11 @@ const Home = () => {
     const posts = useSelector((state) => state.posts);
     useEffect(() => {
         dispatch(getPosts())
+        const get = async () => {
+            const projects = await getPostsbyTag("project");
+            setProjects(projects);
+        };
+        get()
     }, [])
 
 
@@ -59,6 +65,7 @@ const Home = () => {
                     {posts && posts.length > 0 ? <Posts posts={posts} amount={3} /> : <p>No posts Currently</p>}
                 </div>
                 <h3 className='page-subheader'>Projects</h3>
+                <Link to={`/work/`} className='see-more'>See More {'>>'}</Link>
                 {projects && projects.length > 0 ? <Posts posts={projects} amount={3} /> : <p>No projects Currently</p>}
             </div>
             <Footer />

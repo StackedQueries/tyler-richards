@@ -14,7 +14,7 @@ const Blog = () => {
     const posts = useSelector((state) => state.posts);
     useEffect(() => {
         const get = async () => {
-            await dispatch(await getPosts())
+            dispatch(getPosts())
         };
         get()
     }, [])
@@ -25,7 +25,7 @@ const Blog = () => {
             <Link to="/makePost" className="custom-btn btn-12 absolute"><span>Click!</span><span>Make Post &#x022B3;</span></Link>
             <div className='page-content'>
                 <h1 className='page-subheader'>Blog</h1>
-                {posts.length > 0 ? <Posts posts={posts} /> : <p>No posts Currently</p>}
+                {posts && posts.length > 0 ? <Posts posts={posts} /> : <p>No posts Currently</p>}
 
             </div>
             <Footer />

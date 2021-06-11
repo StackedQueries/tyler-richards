@@ -6,7 +6,7 @@ const Posts = ({ posts, amount }) => {
     const [postPage, setPostPage] = useState([])
 
     useEffect(() => {
-
+        posts = posts.reverse()
         let postrow = [];
         if (amount) {
             posts = posts.slice(0, amount)
@@ -14,7 +14,10 @@ const Posts = ({ posts, amount }) => {
         for (let i = 0; i < posts.length; i += width) {
             const temp = []
             for (let j = 0; j < width; j++) {
-                temp.push([posts[i + j]])
+                if (posts[i + j]) {
+
+                    temp.push([posts[i + j]])
+                }
             }
             postrow.push(temp)
         }
