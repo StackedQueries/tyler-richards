@@ -3,7 +3,6 @@ import Footer from '../Footer';
 
 import { useDispatch } from 'react-redux';
 import React, { useState, useEffect } from 'react';
-import { AUTH } from '../../constants/actionTypes';
 import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 
@@ -17,7 +16,7 @@ const Login = () => {
     const [isLogin, setIsLogin] = useState(true)
     const [passMatch, setPassMatch] = useState(null)
     const [form, setForm] = useState(initialState);
-    const [auth, setAuth ] = useState(true)
+    const [auth, setAuth] = useState(true)
 
     /*     const googleSuccess = async (res) => {
             const result = res?.profileObj;
@@ -59,33 +58,39 @@ const Login = () => {
             <Header />
             <div className="page-content">
                 <h1>{isLogin ? 'Login' : 'Register'}</h1>
-                <form onSubmit={handleSubmit}>
+                <form className="infoform" onSubmit={handleSubmit}>
                     {isLogin ? null :
                         <div>
-                            <label>
-                                <p>First Name</p>
-                                <input type="text" name="firstName" onChange={handleChange} />
-                            </label>
-                            <label>
-                                <p>Last Name</p>
-                                <input type="text" name="lastName" onChange={handleChange} />
-                            </label>
+                            <input type="text" name="firstName"
+
+                                className="textbox"
+                                placeholder="First Name"
+                                aria-label="First Name" onChange={handleChange} />
+                            <input type="text"
+                                className="textbox"
+                                placeholder="Last Name"
+                                aria-label="Last Name" name="lastName" onChange={handleChange} />
                         </div>
 
-                    }
-                    <label>
-                        <p>Email</p>
-                        <input type="text" name="email" onChange={handleChange} />
-                    </label>
-                    <label>
-                        <p>Password</p>
-                        <input type="password" name="password" onChange={handleChange} />
-                    </label>
+                    }                    <div>
+                        <input type="text" name="email" aria-label="email"
+                            className="textbox"
+                            placeholder="email"
+                            onChange={handleChange} />
+                    </div>
+                    <div>
+                        <input type="password" name="password"
+                            className="textbox"
+                            placeholder="password"
+                            aria-label="password" onChange={handleChange} />
+                    </div>
                     {isLogin ? null :
                         <div>
-                            <label>
-                                <p>Verify Password</p>
-                                <input type="password" name="verifyPassword" onChange={(e) => {
+                            <input type="password" name="verifyPassword"
+                                aria-label="Verify Password"
+                                className="textbox"
+                                placeholder="Verify Password"
+                                onChange={(e) => {
                                     if (e.target.value !== form.password) {
                                         setPassMatch(false)
                                         console.log('doesnt match')
@@ -94,16 +99,12 @@ const Login = () => {
                                         console.log('it matches')
                                     }
                                 }} />
-                            </label>
-
                         </div>
-
                     }
-                    {!auth ? <p>Login has failed. Please try again</p>: null}
-
+                    {!auth ? <p>Login has failed. Please try again</p> : null}
                     <div>
-                        <button type="submit">Submit</button>
-                        <button type="button" onClick={() => setIsLogin(!isLogin)}>{isLogin ? "Register" : "Login"}</button>
+                        <button className="button" type="submit">Submit</button>
+                        <button className="button" type="button" onClick={() => setIsLogin(!isLogin)}>{isLogin ? "Register" : "Login"}</button>
                     </div>
 
                 </form>

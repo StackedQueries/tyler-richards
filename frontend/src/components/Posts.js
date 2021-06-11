@@ -24,7 +24,6 @@ const Posts = ({ posts, amount }) => {
         setPostPage(postrow)
 
     }, []);
-    console.log(postPage)
 
     return (
         <>

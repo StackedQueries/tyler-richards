@@ -137,3 +137,37 @@ text-shadow: -1px 1px 0 $text-color,
 1px -1px 0 $text-color,
 -1px -1px 0 $text-color;
 }
+
+.infoform{
+  width:50%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  button{
+    width:100%;
+    margin: 5px;
+  }
+  div{
+    display: flex;
+    justify-content: center;
+    padding: 0%;
+    box-sizing: border-box;
+    width: 100%;
+
+
+  }
+}
+.textbox{
+  border: 1px solid $text-color;
+  opacity: 1;
+width: 100%;
+  text-align: center;
+  margin:5px;
+  padding:5px;
+  width: 100%;
+  font-family: $heading-font;
+  background-color: $background-color;
+  font-size: 20px;
+}

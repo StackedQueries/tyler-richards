@@ -13,6 +13,7 @@ const Home = () => {
     const dispatch = useDispatch()
 
     const posts = useSelector((state) => state.posts);
+    const state = useSelector((state) => state)
     useEffect(() => {
         dispatch(getPosts())
         const get = async () => {
@@ -21,6 +22,8 @@ const Home = () => {
         };
         get()
     }, [])
+
+    console.log(state)
 
 
     return (
@@ -33,7 +36,7 @@ const Home = () => {
                         <div className="card-info">
                             <h3 className="card-title">
                                 Lorem Ipsum
-                        </h3 >
+                            </h3 >
                             <p className="card-text">
                                 ellus. Nulla id risus quis tellus dignissim tempus. Mauris fringilla diam vel eros tempor, et dapibus purus pretium. Suspendisse tellus ipsum, eleifend vel mi sed, malesuada ornare velit. Sed varius sapien ut nulla condi                        </p>
                         </div>
@@ -43,7 +46,7 @@ const Home = () => {
                         <div className="card-info">
                             <h3 className="card-title">
                                 liquam eu. Done
-                        </h3 >
+                            </h3 >
                             <p className="card-text">
                                 met faucibus tellus. Nulla id risus quis tellus dig</p>
                         </div>
@@ -53,7 +56,7 @@ const Home = () => {
                         <div className="card-info">
                             <h3 className="card-title">
                                 Maecenas nec
-                        </h3 >
+                            </h3 >
                             <p className="card-text">
                                 issim tempus. Mauris fringilla diam vel eros tempor, et dapibus purus pretium. Suspendisse tellus ipsum, eleifend vel mi sed, malesuada ornare velit. Sed varius sapien ut nulla condimentum tempus. Aliquam consectetur tincidunt suscipit. Etiam fringilla imperdiet tortor, eget viverra augue aliquam eu. D</p>
                         </div>
