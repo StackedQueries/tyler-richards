@@ -7,51 +7,10 @@
         font-weight: 600;
     }
     .post-section{
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        justify-content: space-between;
         width: 80%;
         margin: 5px;
-        padding: 15px;
-        border: solid 1px rgba(128, 128, 128, 0.45);
-        border-radius:25px;
-        &:nth-child(2n){
-            flex-direction: row-reverse;
-        }
-        .info{
-            width: 50%;
-            justify-content: center;
-            text-align: center;
-            align-self: center;
-            align-items: center;
-                h6{
-                                
-                    text-decoration: none; 
-                    font-size: 2em;
-                    color:$text-color;
-                    font-family: 'Bebas Neue', cursive;
-                    letter-spacing: 2px;
-                    font-weight: 600;
-                    padding:2px;
-                }
-                p{
-                    font-family: 'Roboto', sans-serif;
-                    font-weight: 400;
-                    padding: 20px;
-                }
-            
-
-        }
-        img{
-            
-            width: 50%;
-            justify-content: center;
-            text-align: center;
-            align-self: center;
-            align-items: center;
-            border-radius: 25px;
-
+        .row{
+            justify-content: space-around;
         }
     }
 }

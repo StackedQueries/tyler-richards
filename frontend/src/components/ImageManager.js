@@ -1,5 +1,5 @@
-import Image from './Image'
-import { deleteImage, getImages, uploadImages } from '../actions/images'
+import Image from './Image';
+import { deleteImage, getImages, uploadImages } from '../actions/images';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -25,8 +25,8 @@ const ImageManager = ({ setImage }) => {
     }
     return (
         <div className="page-content">
-            {images.map((img) =>
-                <div>
+            {images.map((img, index) =>
+                <div key={index}>
                     <input type="radio" id={img.id} name="images" value={img.id} onChange={() => setImage(img)} />
                     <img width="100px" src={"http://localhost:5000/" + img.url} />
                     <button onClick={(e) => onDelete(e, img.id)}>Delete</button>

@@ -1,6 +1,7 @@
 @import './variables.scss';
 @import './buttons.scss';
 @import './content-card.scss';
+@import './post.scss';
 *{
     margin:0;
     padding:0;
@@ -92,7 +93,6 @@ footer {
 
 .section-heading {
   font-size: 1.5em;
-  margin:1vh;
 }
 .column{
     justify-content: center;
@@ -170,4 +170,13 @@ width: 100%;
   font-family: $heading-font;
   background-color: $background-color;
   font-size: 20px;
+}
+
+.about-pic{
+  border-radius: 50%;
+  height: 250px;
+  width:250px;
+  object-fit: cover;
+  margin:15px;
+  border: 1px solid #4A7856;
 }

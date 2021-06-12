@@ -63,11 +63,11 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="page-section">
-                    <h3 className='page-subheader'>Articles</h3>
+                    <h3 className='page-header'>Articles</h3>
                     <Link to={`/blog/`} className='see-more'>See More {'>>'}</Link>
                     {posts && posts.length > 0 ? <Posts posts={posts} amount={3} /> : <p>No posts Currently</p>}
                 </div>
-                <h3 className='page-subheader'>Projects</h3>
+                <h3 className='page-header'>Projects</h3>
                 <Link to={`/work/`} className='see-more'>See More {'>>'}</Link>
                 {projects && projects.length > 0 ? <Posts posts={projects} amount={3} /> : <p>No projects Currently</p>}
             </div>
