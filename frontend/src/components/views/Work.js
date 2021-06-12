@@ -19,7 +19,7 @@ const Work = () => {
         <div>
             <Header />
             <div className='page-content'>
-                <h1 className='page-header'>Projects</h1>
+                <h1 className='page-title'>Projects</h1>
                 {projects && projects.length > 0 ?
                     projects.reverse().map((project, index) => {
                         return <Link to={`/blog/${project.id}`} key={index} className='project-title'>{project.title}</Link>

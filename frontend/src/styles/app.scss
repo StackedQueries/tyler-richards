@@ -81,7 +81,7 @@ footer {
         margin-bottom:20px;
     }
 }
-.page-header{
+.page-title{
     font-size: 2.5em;
     text-align: left;
     justify-content: left;
@@ -107,6 +107,7 @@ footer {
 .page-section{
   margin: 20px;
   width: 100%;
+  padding:10px;
 }
 .row{
   display:flex;
@@ -179,4 +180,30 @@ width: 100%;
   object-fit: cover;
   margin:15px;
   border: 1px solid #4A7856;
+}
+
+.page-header{
+  font-size: 3.5em;
+  margin:2em;
+}
+
+.input-section{
+  
+  margin:2em;
+}
+.center{
+  width:100%;
+  display:flex;
+  justify-content: center;
+  
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
+}
+.underline{
+  
+  border-bottom: solid;
+    
+  margin-bottom: 10px;
 }

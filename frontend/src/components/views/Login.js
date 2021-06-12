@@ -57,51 +57,55 @@ const Login = () => {
 
             <Header />
             <div className="page-content">
-                <h1>{isLogin ? 'Login' : 'Register'}</h1>
+                <h1 className='page-title'>{isLogin ? 'Login' : 'Register'}</h1>
                 <form className="infoform" onSubmit={handleSubmit}>
-                    {isLogin ? null :
-                        <div>
-                            <input type="text" name="firstName"
+                    <h2 className="page-header">{isLogin ? 'Login' : 'Register'}</h2>
+                    <div className="infoform input-section">
+                        {isLogin ? null :
 
-                                className="textbox"
-                                placeholder="First Name"
-                                aria-label="First Name" onChange={handleChange} />
-                            <input type="text"
-                                className="textbox"
-                                placeholder="Last Name"
-                                aria-label="Last Name" name="lastName" onChange={handleChange} />
-                        </div>
+                            <div>
+                                <input type="text" name="firstName"
 
-                    }                    <div>
-                        <input type="text" name="email" aria-label="email"
-                            className="textbox"
-                            placeholder="email"
-                            onChange={handleChange} />
-                    </div>
-                    <div>
-                        <input type="password" name="password"
-                            className="textbox"
-                            placeholder="password"
-                            aria-label="password" onChange={handleChange} />
-                    </div>
-                    {isLogin ? null :
-                        <div>
-                            <input type="password" name="verifyPassword"
-                                aria-label="Verify Password"
+                                    className="textbox"
+                                    placeholder="First Name"
+                                    aria-label="First Name" onChange={handleChange} />
+                                <input type="text"
+                                    className="textbox"
+                                    placeholder="Last Name"
+                                    aria-label="Last Name" name="lastName" onChange={handleChange} />
+                            </div>
+
+                        }                    <div>
+                            <input type="text" name="email" aria-label="email"
                                 className="textbox"
-                                placeholder="Verify Password"
-                                onChange={(e) => {
-                                    if (e.target.value !== form.password) {
-                                        setPassMatch(false)
-                                        console.log('doesnt match')
-                                    } else {
-                                        setPassMatch(true)
-                                        console.log('it matches')
-                                    }
-                                }} />
+                                placeholder="email"
+                                onChange={handleChange} />
                         </div>
-                    }
-                    {!auth ? <p>Login has failed. Please try again</p> : null}
+                        <div>
+                            <input type="password" name="password"
+                                className="textbox"
+                                placeholder="password"
+                                aria-label="password" onChange={handleChange} />
+                        </div>
+                        {isLogin ? null :
+                            <div>
+                                <input type="password" name="verifyPassword"
+                                    aria-label="Verify Password"
+                                    className="textbox"
+                                    placeholder="Verify Password"
+                                    onChange={(e) => {
+                                        if (e.target.value !== form.password) {
+                                            setPassMatch(false)
+                                            console.log('doesnt match')
+                                        } else {
+                                            setPassMatch(true)
+                                            console.log('it matches')
+                                        }
+                                    }} />
+                            </div>
+                        }
+                        {!auth ? <p>Login has failed. Please try again</p> : null}
+                    </div>
                     <div>
                         <button className="button" type="submit">Submit</button>
                         <button className="button" type="button" onClick={() => setIsLogin(!isLogin)}>{isLogin ? "Register" : "Login"}</button>
@@ -124,7 +128,7 @@ const Login = () => {
                 /> */}
             </div>
             <Footer />
-        </div>
+        </div >
     )
 }
 
