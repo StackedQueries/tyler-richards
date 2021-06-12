@@ -19,6 +19,7 @@ const About = () => {
                     <div className="row">
                         <img className="about-pic" src="http://localhost:5000/imgs/170867e5-2cc8-4372-8a3d-275558ce76e0index.png" alt="Picture of me" />
                         <div>
+                            <p>I’m super competitive and love a good challenge. I n my free time, I love to learn new things, play video games, and adventure outdoors. </p>
                             <h4 className="center-text">
                                 Things I also enjoy
                             </h4>
