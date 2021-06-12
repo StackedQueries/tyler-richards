@@ -28,11 +28,16 @@ const MakePost = (props) => {
     const history = useHistory();
 
     const { postId } = useParams();
+    const state = useSelector((state) => state);
     const tags = useSelector((state) => state.tags);
     useEffect(() => {
         const get = async () => {
             console.log('test')
             await dispatch(getTags())
+
+        console.log(tags)
+        console.log(state)
+        console.log(postTags)
             if (postId) {
                 const post = await getPost(postId)
                 console.log(post)
@@ -85,7 +90,8 @@ const MakePost = (props) => {
                 return value !== e.target.id
             }))
         }
-
+        console.log(tags)
+        console.log(state)
         console.log(postTags)
     }
 
@@ -124,7 +130,8 @@ const MakePost = (props) => {
 
                     <label>Add Tag
                     </label>
-                    {tags.map((tag, index) => <label> <input
+                    {tags.map((tag, index) =>  {
+                        return (<label> <input
                         type='checkbox'
                         key={index}
                         placeholder='Add tag'
@@ -133,8 +140,10 @@ const MakePost = (props) => {
                         onChange={(e) => tagChange(e)}
                         key={index}
                         checked={postTags.includes(tag._id)}
+                        
+                    
 
-                    /> {tag.tagName}</label>)}
+                    /> {tag.tagName}</label>)})}
 
 
 

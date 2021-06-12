@@ -14,7 +14,7 @@ const Blog = () => {
     const posts = useSelector((state) => state.posts);
     useEffect(() => {
         const get = async () => {
-            dispatch(getPosts())
+            dispatch(getPosts());
         };
         get()
     }, [])
