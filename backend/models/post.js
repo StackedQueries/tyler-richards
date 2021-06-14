@@ -13,7 +13,7 @@ const PostSchema = new Schema({
     }],
     releaseDate: Date,
     creationDate: Date,
-    LastEdit: Date,
+    lastEdit: Date,
     likedBy:[{
         type: Schema.Types.ObjectId,
         ref:'User'

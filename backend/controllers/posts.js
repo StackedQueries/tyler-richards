@@ -1,7 +1,7 @@
 
-const Image = require('../models/image')
+const Image = require('../models/image');
 const Post = require('../models/post');
-const Tag = require('../models/tag')
+const Tag = require('../models/tag');
 
 
 //GETS ALL POSTS (IF TAG QUERY, GET ALL POSTS WITH TAG))
@@ -43,7 +43,7 @@ module.exports.createPost = async (req, res) => {
         image = undefined
     }
 
-    const post = new Post(reqpost)
+    const post = new Post({...reqpost, creationDate: Date.now(), lastEdit: Date.now()})
     console.log(post)
 
 
@@ -61,7 +61,7 @@ module.exports.createPost = async (req, res) => {
 //UPDATE POST
 module.exports.updatePost = async (req, res) => {
     const { id } = req.params;
-    const post = await Post.findByIdAndUpdate(id, { ...req.body.post })
+    const post = await Post.findByIdAndUpdate(id, { ...req.body.post, lastEdit: Date.now() })
     await post.save();
     res.send(post);
 }

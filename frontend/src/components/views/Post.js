@@ -32,9 +32,10 @@ const Post = () => {
         <>
             <Header />
             <div className='page-content'>
+                <h1 className="page-title">{post.title}</h1>
                 {post.image?.url ? <img height="100vh" src={"http://localhost:5000/" + post.image.url}></img>
-                    : null}<h1 className="page-header">{post.title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: body }} />
+                    : null}
+                <div className="post-section" dangerouslySetInnerHTML={{ __html: body }} />
             </div>
             <Link to="/" className='custom-btn btn-12'><span>Click!</span><span>return&#x022B3;</span></Link>
 

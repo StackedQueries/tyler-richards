@@ -39,7 +39,7 @@ module.exports.admin = async (req, res, next) => {
         if (user.isAdmin) {
             next()
         } else {
-            res.json({ isAdmin: false })
+            res.json({ status: false })
         }
     } catch (error) {
         console.log(error);
