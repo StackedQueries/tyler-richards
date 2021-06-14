@@ -1,9 +1,17 @@
 import Post from './Post'
 import ContentCard from './ContentCard';
 import { useEffect, useState } from 'react'
+import { GetCurrentSize } from '../utils/ViewportProvider';
 const Posts = ({ posts, amount }) => {
-    const width = 3;
     const [postPage, setPostPage] = useState([])
+    const size = GetCurrentSize();
+
+    const [rowWidth, setRowWidth] = useState(3)
+    useEffect(() => {
+
+        console.log(size);
+        setRowWidth(size === "small" ? 1 : size === "medium" ? 2 : 3)
+    }, [size]);
 
     useEffect(() => {
         posts = posts.reverse()
@@ -11,9 +19,9 @@ const Posts = ({ posts, amount }) => {
         if (amount) {
             posts = posts.slice(0, amount)
         }
-        for (let i = 0; i < posts.length; i += width) {
+        for (let i = 0; i < posts.length; i += rowWidth) {
             const temp = []
-            for (let j = 0; j < width; j++) {
+            for (let j = 0; j < rowWidth; j++) {
                 if (posts[i + j]) {
 
                     temp.push([posts[i + j]])
@@ -23,7 +31,7 @@ const Posts = ({ posts, amount }) => {
         }
         setPostPage(postrow)
 
-    }, []);
+    }, [rowWidth]);
 
     return (
         <>

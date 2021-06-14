@@ -16,23 +16,25 @@ import Dashboard from './components/views/Dashboard'
 import ImageManager from './components/ImageManager'
 import 'cors'
 import './styles/app.scss'
+import { ViewportProvider } from "./utils/ViewportProvider";
 
 function App() {
 
   return (
     <Router>
-      <Route path='/work' render={props => <Work />} />
-      <Route path="/blog/:postId" render={props => <Post />} />
-      <Route path='/blog' exact render={props => <Blog />} />
-      <Route path='/about' render={About} />
-      <Route path='/updatePost/:postId' render={props => <MakePost />} />
-      <Route path='/makePost' render={props => <MakePost />} />
-      <Route path='/contact' render={Contact} />
-      <Route path='/testing' render={props => <ImageManager />} />
-      <Route path='/Login' render={props => <Login />} />
-      <Route path='/dashboard' render={Dashboard} />
-      <Route path='/' exact render={props => <Home />} />
-
+      <ViewportProvider>
+        <Route path='/work' render={props => <Work />} />
+        <Route path="/blog/:postId" render={props => <Post />} />
+        <Route path='/blog' exact render={props => <Blog />} />
+        <Route path='/about' render={About} />
+        <Route path='/updatePost/:postId' render={props => <MakePost />} />
+        <Route path='/makePost' render={props => <MakePost />} />
+        <Route path='/contact' render={Contact} />
+        <Route path='/testing' render={props => <ImageManager />} />
+        <Route path='/Login' render={props => <Login />} />
+        <Route path='/dashboard' render={Dashboard} />
+        <Route path='/' exact render={props => <Home />} />
+      </ViewportProvider>
     </Router>
   );
 }
