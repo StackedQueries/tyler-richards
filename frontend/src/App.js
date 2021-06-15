@@ -16,6 +16,7 @@ import Dashboard from './components/views/Dashboard'
 import ImageManager from './components/ImageManager'
 import 'cors'
 import './styles/app.scss'
+import './styles/media.scss'
 import { ViewportProvider } from "./utils/ViewportProvider";
 
 function App() {

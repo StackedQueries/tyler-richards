@@ -1,0 +1,42 @@
+
+  @media screen and (max-width:992px){
+      
+.card-text{
+    max-height:45%;
+}
+.button{
+    width:100%;
+    margin: 10px 0;
+}
+
+.project-title{
+    font-size:20vw;
+}
+}
+
+@media only screen and (max-width: 600px) {
+    .linebox{
+    .side {
+        font-size:1em;
+        flex-basis:20%;
+    }
+
+}
+
+.page-section{
+    margin: 5px 0;
+    width:100%;
+    padding: 0px;
+}
+.content-card{
+    margin:0;
+    padding:2em;
+}
+.page-header{
+    width:80%;
+}
+
+.infoform{
+    width:100%;
+}
+  }
