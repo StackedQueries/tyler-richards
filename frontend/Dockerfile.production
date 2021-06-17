@@ -1,5 +1,5 @@
 ### First Stage ###
-FROM node:16 AS builder
+FROM node:current AS builder
 
 WORKDIR /usr/src/app
 
