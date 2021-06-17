@@ -1,4 +1,4 @@
-
+@import './variables.scss';
   @media screen and (max-width:992px){
       
 .card-text{
@@ -12,6 +12,16 @@
 .project-title{
     font-size:20vw;
 }
+.landing{
+    
+    font-size: 15vw;
+    text-shadow:2px  2px   0 $text-color,
+4px 4px  0 $text-color,
+6px 6px  0 $text-color,
+8px 8px 0  $text-color,
+10px 10px 0  $text-color,
+12px 12px 0  $text-color;
+}
 }
 
 @media only screen and (max-width: 600px) {
@@ -21,6 +31,10 @@
         flex-basis:20%;
     }
 
+}
+.landing{
+    
+    font-size: 15vw;
 }
 
 .page-section{

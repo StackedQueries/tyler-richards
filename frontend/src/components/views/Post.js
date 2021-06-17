@@ -33,7 +33,7 @@ const Post = () => {
             <Header />
             <div className='page-content'>
                 <h1 className="page-title">{post.title}</h1>
-                {post.image?.url ? <img height="100vh" src={"http://localhost:5000/" + post.image.url}></img>
+                {post.image?.url ? <img width="75%" src={"http://localhost:5000/" + post.image.url}></img>
                     : null}
                 <div className="post-section" dangerouslySetInnerHTML={{ __html: body }} />
             </div>
