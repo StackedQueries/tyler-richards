@@ -19,3 +19,6 @@ build-production:
 
 run-production:
 	ENV=production docker-compose -f docker-compose-production.yml up -d
+
+run-production-verbose:
+	ENV=production docker-compose -f docker-compose-production.yml up 
