@@ -1,4 +1,6 @@
-FROM node:current
+FROM node:15
+
+RUN npm install -g --unsafe-perm node-sass --save
 
 WORKDIR /usr/src/app
 
