@@ -41,7 +41,8 @@ mongoose.connect(dbUrl, {
 });
 
 console.log(`JWT SECRET CHECK: ${process.env.JWT_SECRET.length > 5 ? "PASSED" : "FAILED"}`)
-
+            console.log(`BUILD TYPE: ${process.env.BUILD}`)
+            if (process.env.BUILD === "DEV") {console.log("VALUE CHECKED")}
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));

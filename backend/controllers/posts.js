@@ -11,7 +11,7 @@ module.exports.index = async (req, res) => {
     let request = {}
     if (tag) {
         tagID = await Tag.find({ tagName: tag })
-        request = { tags: tagID[0]._id }
+        request = { tags: tagID[0]?._id } //FIX THE ? MARK
 
     }
     const posts = await Post.find(request)
@@ -20,7 +20,7 @@ module.exports.index = async (req, res) => {
         .populate('image')
         .populate('tags')
     //.sort( '-createdOn' )
-    console.log('posts sent')
+
     res.send(posts)
 }
 
@@ -43,16 +43,8 @@ module.exports.createPost = async (req, res) => {
         image = undefined
     }
 
-    const post = new Post({...reqpost, creationDate: Date.now(), lastEdit: Date.now()})
-    console.log(post)
-
-
-    // const post = new Post({
-    //     title: reqpost.title,
-    //     body: reqpost.body,
-    //     tags: reqpost.tags,
-    //     image
-    // })
+    const post = new Post({...reqpost})
+    console.log(`POST UPLOADED`)
 
     await post.save();
     res.send(post);

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Upload = require('./upload');
 
 const opts = { toJSON: { virtuals: true } };
 
@@ -16,4 +17,4 @@ const ImageSchema = new Schema({
     return this.url.replace('/upload', '/upload/w_200');
 }); */
 
-module.exports = mongoose.model('Image', ImageSchema);
+module.exports = Upload.discriminator('Image', ImageSchema);

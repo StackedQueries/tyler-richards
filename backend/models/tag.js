@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Upload= require('./upload');
 const opts = { toJSON: { virtuals: true } };
 
 //TAG SCHEMA
@@ -7,8 +8,7 @@ const opts = { toJSON: { virtuals: true } };
 const tagSchema = new Schema({
     tagName: String,
     //color: Object,
-    creationDate: Date
 }, opts);
 
 
-module.exports = mongoose.model('Tag', tagSchema);
+module.exports = Upload.discriminator('Tag', tagSchema);

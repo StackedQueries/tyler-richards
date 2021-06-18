@@ -8,8 +8,8 @@ const About = () => {
             <Header />
             <div className='page-content'>
                 <h1 className='page-title'>About</h1>
+                    <h3 className="page-header">Hey, I'm Tyler 👋</h3>
                 <div className='post-section'>
-                    <h3 className="center-text page-header">Hey, I'm Tyler 👋</h3>
                     <div>
                         <p>I'm an Atlanta based web developer that makes ~almost~ cool things. Since I got into programming, back in ~2015ish, I have had the pleasure
                             of getting to work with loads of technologies including Python, Java, and JS, and study topics ranging from AI and Machine learning all the way to
@@ -35,7 +35,9 @@ const About = () => {
                         </div>
 
                     </div>
-                    <div className="center">
+
+                </div>
+                <div className="center">
                         <p className="page-section underline">
                             If you want to start on a project or just need a little help, feel free to reach out! I'm excited to hear from you
                             and I promise I won't bite!
@@ -49,8 +51,6 @@ const About = () => {
 
                         <a href="/contact" className="button ">Contact Me!</a>
                     </div>
-                </div>
-
             </div >
             <Footer />
         </div >

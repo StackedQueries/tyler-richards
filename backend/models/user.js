@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+const Upload = require('./upload');
 //USER MODEL
 
 const userSchema = mongoose.Schema({
@@ -15,14 +16,8 @@ const userSchema = mongoose.Schema({
         type: String,
          required: true
          },
-    createdDate:{
-        type: Date
-    },
     lastLogin:{
         type:Date
-    },
-    id: { 
-        type: String 
     },
     isAdmin: {
          type: Boolean, 
@@ -30,4 +25,4 @@ const userSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = Upload.discriminator("User", userSchema);

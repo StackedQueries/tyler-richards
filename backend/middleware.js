@@ -6,13 +6,14 @@ const secret = process.env.JWT_SECRET;
 module.exports.auth = async (req, res, next) => {
     try {
         console.log(req.headers)
+        if (process.env.BUILD === "DEV") {next(); return}
         if (req.headers.authorization) {
             const token = req.headers.authorization.split(" ")[1];
             const isCustomAuth = token.length < 500;
 
             let decodedData;
 
-            if (token && isCustomAuth) {
+            if (token && isCustomAuth ) {
                 decodedData = jwt.verify(token, secret);
                 req.userId = decodedData?.id;
             } else {
@@ -34,9 +35,11 @@ module.exports.auth = async (req, res, next) => {
 
 module.exports.admin = async (req, res, next) => {
     try {
+        if (process.env.BUILD === "DEV") {next(); return}
+        
         const id = req.userId
         const user = await User.findOne({ '_id': id })
-        if (user.isAdmin) {
+        if (user?.isAdmin) {
             next()
         } else {
             res.json({ status: false })

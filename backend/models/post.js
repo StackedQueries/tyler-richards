@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Upload = require('./upload');
 const opts = { toJSON: { virtuals: true } };
 
 //POST SCHEMA
@@ -7,13 +8,12 @@ const opts = { toJSON: { virtuals: true } };
 const PostSchema = new Schema({
     title: String,
     body: Object,
+    desc: String,
     tags: [{
         type: Schema.Types.ObjectId,
         ref: 'Tag'
     }],
-    releaseDate: Date,
-    creationDate: Date,
-    lastEdit: Date,
+    
     likedBy:[{
         type: Schema.Types.ObjectId,
         ref:'User'
@@ -21,10 +21,6 @@ const PostSchema = new Schema({
     image: {
         type: Schema.Types.ObjectId,
         ref: 'Image'
-    },
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
     },
     comments: [{
         type: Schema.Types.ObjectId,
@@ -48,4 +44,4 @@ PostSchema.virtual('currLikes',async function (doc){
     }
 }) 
 
-module.exports = mongoose.model('Post', PostSchema);
+module.exports = Upload.discriminator('Post', PostSchema);
