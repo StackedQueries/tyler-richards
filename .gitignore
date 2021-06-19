@@ -32,3 +32,5 @@ localMakefile
 caddy-data/caddy/acme/acme-v02.api.letsencrypt.org-directory/users/sid.tyler@tyler-richards.com/sid.tyler.json
 caddy-data/caddy/acme/acme-v02.api.letsencrypt.org-directory/users/sid.tyler@tyler-richards.com/sid.tyler.key
 caddy-config/caddy/autosave.json
+frontend/yarn.lock
+.gitignore
