@@ -14,7 +14,7 @@ const Posts = ({ posts, amount }) => {
     }, [size]);
 
     useEffect(() => {
-        posts = posts.reverse()
+        posts = posts?.reverse()
         let postrow = [];
         if (amount) {
             posts = posts.slice(0, amount)

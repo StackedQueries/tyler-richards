@@ -26,8 +26,8 @@
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "editorjs-parser": "^1.5.3",
+    "env-cmd": "^10.1.0",
     "jwt-decode": "^3.1.2",
-    "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-editor-js": "^1.9.0",
@@ -37,12 +37,15 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.35.1",
     "universal-cookie": "^4.0.4",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "env-cmd -f ./config/.env.dev react-scripts start",
     "build": "react-scripts build",
+    "build:local": "env-cmd -f ./config/.env.local react-scripts build",
+    "build:production": "env-cmd -f ./config/.env.production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -72,7 +72,8 @@ app.get('/', (req, res) => {
 })
 
 app.all('*', (req, res, next) => {
-    next(new ExpressError('Request not valid', 404));
+    console.log(req.originalUrl)
+    next(new ExpressError('Request is not valid', 404));
 })
 
 app.use((err, req, res, next) => {
