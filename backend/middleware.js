@@ -35,7 +35,7 @@ module.exports.auth = async (req, res, next) => {
 
 module.exports.admin = async (req, res, next) => {
     try {
-        if (process.env.BUILD === "DEV") {next(); return}
+        if (process.env.NODE_ENV==='dev') { return next();}
         
         const id = req.userId
         const user = await User.findOne({ '_id': id })
