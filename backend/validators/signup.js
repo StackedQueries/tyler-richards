@@ -6,32 +6,34 @@ const schema = Joi.object({
     first_name: Joi.string()
         .alphanum()
         .min(2)
-        .max(30),
+        .max(30)
+        .required(),
 
     last_name: Joi.string()
         .alphanum()
         .min(2)
-        .max(30),
+        .max(30)
+        .required(),
 
     password: Joi.string()
-        .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
-
-    repeat_password: Joi.ref('password'),
-
+        .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
+        .required(),
 
     email: Joi.string()
         .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
+        .required()
 })
-    .with('first_name', 'last_name')
-    .with('password', 'email');
+
 
 
 module.exports.validateUser = async (req, res, next) => {
     try {
-        schema.validate(req.body.post)
-        next(new ExpressError(err.message, 406))
+        const { email, password, firstName, lastName } = req.body;
+        const value = await schema.validateAsync({ email, password, first_name:firstName, last_name:lastName })
+        next()
     }
     catch (err) { 
-
+        console.log(err)
+        return next(new ExpressError(err.message, 406))
     }
 }
