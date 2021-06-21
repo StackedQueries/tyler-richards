@@ -27,7 +27,7 @@ function App() {
         <Route path='/work' render={props => <Work />} />
         <Route path="/blog/:postId" render={props => <Post />} />
         <Route path='/blog' exact render={props => <Blog />} />
-        <Route path='/about' render={About} />
+        <Route path='/about' render={props => <About />} />
         <Route path='/updatePost/:postId' render={props => <MakePost />} />
         <Route path='/makePost' render={props => <MakePost />} />
         <Route path='/contact' render={Contact} />

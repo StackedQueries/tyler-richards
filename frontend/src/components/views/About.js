@@ -2,7 +2,16 @@
 import Header from '../Header';
 import Footer from '../Footer';
 import Connection from '../Connection';
-const About = () => {
+import { GetCurrentSize } from '../../utils/ViewportProvider';
+import { useEffect, useState } from 'react'
+const About = (props) => {
+    
+    const size = GetCurrentSize();
+    useEffect(() => {
+
+        console.log(size);
+    }, [size]);
+
     return (
         <div>
             <Header />
@@ -17,8 +26,9 @@ const About = () => {
                             React, Express, and tools like Docker and MongoDB to create things.
                         </p>
                     </div>
+                    {size!=="large" ? <img className="about-pic" src="http://localhost:5000/imgs/022d8329-890f-4320-9dc3-dc071a343b96jessica-lewis-DeyfdybVQhA-unsplash.jpg" alt="Picture of me" />:null}
                     <div className="row">
-                        <img className="about-pic" src="http://localhost:5000/imgs/170867e5-2cc8-4372-8a3d-275558ce76e0index.png" alt="Picture of me" />
+                       {size==="large" ? <img className="about-pic" src="http://localhost:5000/imgs/022d8329-890f-4320-9dc3-dc071a343b96jessica-lewis-DeyfdybVQhA-unsplash.jpg" alt="Picture of me" />:null}
                         <div>
                             <p>I’m super competitive and love a good challenge. In my free time, I love to learn new things, play video games, and adventure outdoors. </p>
                             <h3 className="section-heading center-text">

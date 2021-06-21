@@ -21,6 +21,7 @@ const MakePost = (props) => {
     const instanceRef = useRef(null)
 
     const [title, setTitle] = useState('title')
+    const [desc, setDesc] =useState(null)
     const [body, setBody] = useState(null)
     const [postTags, setPostTags] = useState([])
     const [newTag, setNewTag] = useState(null)
@@ -43,6 +44,7 @@ const MakePost = (props) => {
                 console.log(post)
                 setBody(post.body)
                 setTitle(post.title)
+                setDesc(post.desc)
                 setPostTags(post.tags)
                 setImage(post.setImage)
             }
@@ -59,9 +61,9 @@ const MakePost = (props) => {
         if (parser.parse(savedData))
             if (postId) {
                 console.log("tags:" + postTags)
-                dispatch(updatePost(postId, { post: { title, body: savedData, tags: postTags, image } }))
+                dispatch(updatePost(postId, { post: { title, body: savedData, tags: postTags, image, desc } }))
             } else {
-                dispatch(createPost({ post: { title, body: savedData, tags: postTags, image } }))
+                dispatch(createPost({ post: { title, body: savedData, tags: postTags, image, desc } }))
 
             }
         return history.push('/')
@@ -122,6 +124,15 @@ const MakePost = (props) => {
                             placeholder='Add Title'
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
+                        />
+                    </label>
+                    <br></br>
+                    <label>Description
+                    <input
+                            type='text'
+                            placeholder='Add Description'
+                            value={desc}
+                            onChange={(e) => setDesc(e.target.value)}
                         />
                     </label>
 

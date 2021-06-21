@@ -170,9 +170,9 @@ width: 100%;
 .about-pic{
   border-radius: 50%;
   height: 250px;
-  width:250px;
+  width:250px !important;
   object-fit: cover;
-  margin:15px;
+  margin:3vw !important;
   border: 1px solid #4A7856;
 }
 
@@ -201,4 +201,22 @@ width: 100%;
   border-bottom: solid;
     
   margin-bottom: 10px;
+}
+.button{
+  padding:10px;
+  min-width: 50%;
+  background-color: $accent-color;
+  text-align: center;
+  letter-spacing: 1px;
+  font-family: 'Bebas Neue';
+  font-size:18px;
+  color: $background-color;
+  border: none;
+
+}
+
+.secondary-button{
+  color:$accent-color;
+  background-color: $background-color;
+  border: 1px solid $accent-color;
 }

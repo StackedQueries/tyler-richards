@@ -8,20 +8,23 @@ const ImageManager = ({ setImage }) => {
     const [selectedFile, setSelectedFile] = useState(null);
 
     const dispatch = useDispatch();
-
+    
     const images = useSelector((state) => state.images);
+    const fetchImages = () =>  dispatch(getImages())
     useEffect(() => {
-        dispatch(getImages())
+        fetchImages()
     }, [])
 
     const onDelete = async (e, imgID) => {
         e.preventDefault()
-        dispatch(deleteImage(imgID))
+        await dispatch(deleteImage(imgID))
+        fetchImages()
     }
 
     const onSubmit = async (e) => {
         e.preventDefault()
         dispatch(uploadImages(selectedFile[0]))
+        fetchImages()
     }
     return (
         <div className="page-content">

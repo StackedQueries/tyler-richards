@@ -10,6 +10,12 @@
     display: flex;
     flex-direction: column;
     margin:0 20px;
+      position: relative;
+    .button{
+      position:absolute;
+      bottom: 0px;
+      margin-bottom: 5vh;
+    }
 
 }
 .card-img{
@@ -39,18 +45,7 @@
   overflow:hidden;
   text-overflow: ellipsis;
 }
-.button{
-  padding:10px;
-  min-width: 50%;
-  background-color: $accent-color;
-  text-align: center;
-  letter-spacing: 1px;
-  font-family: 'Bebas Neue';
-  font-size:18px;
-  color: $background-color;
-  border: none;
 
-}
 .button:hover{
     
   background-color:$accent-hover;

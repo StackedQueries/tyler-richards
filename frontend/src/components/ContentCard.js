@@ -10,7 +10,7 @@ const ContentCard = ({ post }) => {
                     {post.title}
                 </h4 >
                 <p className="card-text">
-                    ellus. Nulla id risus quis tellus dignissim tempus. Mauris fringilla diam vel eros tempor, et dapibus purus pretium. Suspendisse tellus ipsum, eleifend vel mi sed, malesuada ornare velit. Sed varius sapien ut nulla condi </p>
+                   {post.desc}</p>
 
                 {post.id && <Link to={`/blog/${post.id}`} ><button className="button">Read More  {'>>'}</button></Link>
                 }

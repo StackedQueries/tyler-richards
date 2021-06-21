@@ -6,10 +6,17 @@
         text-decoration: none; 
         font-weight: 600;
     }
+
     .post-section{
         width: 80%;
         margin: 5px;
-
+        img{
+            width:100%;
+            margin: 20px 0;
+        }
+        div{
+            width:100%;
+        }
   display: flex;
   flex-direction: column;
   align-items: center;
