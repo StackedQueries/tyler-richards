@@ -76,6 +76,7 @@ app.all('*', (req, res, next) => {
     next(new ExpressError('Request is not valid', 404));
 })
 
+//ERROR HANDLER
 app.use((err, req, res, next) => {
     const { statusCode = 500 } = err;
     if (!err.message) err.message = 'something went wrong';
