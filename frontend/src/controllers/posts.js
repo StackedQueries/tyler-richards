@@ -3,7 +3,6 @@ export const getPosts = async () => {
 
     const res = await fetch('http://192.168.1.111:5000/posts');
     const postsFromServer = await res.json();
-    console.log(postsFromServer)
     const projectsFromServer = postsFromServer.filter(project => project.tags.find(tag => tag === "project"));
     return { postsFromServer, projectsFromServer };
 
@@ -17,7 +16,6 @@ export const getPost = async (id) => {
 }
 
 export const makePost = async (data) => {
-    console.log(data)
     const res = await fetch('http://localhost:5000/posts', {
         method: 'POST',
         headers: {
@@ -38,7 +36,6 @@ export const updatePost = async (id, data) => {
 }
 
 export const deletePost = async (id) => {
-    console.log(id)
     const res = await fetch(`http://192.168.1.111:5000/posts/${id}`,
         { method: 'DELETE' })
 }
