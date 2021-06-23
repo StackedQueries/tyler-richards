@@ -22,8 +22,8 @@ const Blog = () => {
     return (
         <div>
             <Header />
-            <Link to="/makePost" className="custom-btn btn-12 absolute"><span>Click!</span><span>Make Post &#x022B3;</span></Link>
-            <div className='page-content'>
+            {/* <Link to="/makePost" className="custom-btn btn-12 absolute"><span>Click!</span><span>Make Post &#x022B3;</span></Link>
+             */}<div className='page-content'>
                 <h1 className='page-title'>Blog</h1>
                 {posts && posts.length > 0 ? <Posts posts={posts} /> : <p>No posts Currently</p>}
 
