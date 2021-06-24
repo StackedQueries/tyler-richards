@@ -17,5 +17,5 @@ tyler-richards.com {
 
 https://api.tyler-richards {
     tls tyler@tyler-richards.com
-    reverse_proxy api:5000
+    reverse_proxy 192.168.1.210:5000
 }
