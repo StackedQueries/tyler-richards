@@ -9,6 +9,7 @@
 tyler-richards.com {
     tls tyler@tyler-richards.com
     root * /srv
+    file_server
 }
 
 api.tyler-richards:80 {
