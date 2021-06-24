@@ -40,6 +40,7 @@ module.exports.admin = async (req, res, next) => {
         const id = req.userId
         const user = await User.findOne({ '_id': id })
         if (user?.isAdmin) {
+            console.log("admin authenticated")
             next()
         } else {
             res.json({ status: false })
