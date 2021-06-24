@@ -34,3 +34,4 @@ caddy-data/caddy/acme/acme-v02.api.letsencrypt.org-directory/users/sid.tyler@tyl
 caddy-config/caddy/autosave.json
 frontend/yarn.lock
 .gitignore
+frontend/config/**
