@@ -9,7 +9,6 @@ const Posts = ({ posts, amount }) => {
     const [rowWidth, setRowWidth] = useState(3)
     useEffect(() => {
 
-        console.log(size);
         setRowWidth(size === "small" ? 1 : size === "medium" ? 2 : 3)
     }, [size]);
 

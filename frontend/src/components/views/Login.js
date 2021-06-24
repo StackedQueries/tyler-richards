@@ -32,14 +32,12 @@ const Login = () => {
         } */
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("submitted")
         if (!isLogin) {
             dispatch(signup(form, history));
         } else {
             try {
                 setAuth(await dispatch(signin(form, history)));
             } catch (error) {
-                console.log(error)
             }
         }
     };
@@ -96,10 +94,8 @@ const Login = () => {
                                     onChange={(e) => {
                                         if (e.target.value !== form.password) {
                                             setPassMatch(false)
-                                            console.log('doesnt match')
                                         } else {
                                             setPassMatch(true)
-                                            console.log('it matches')
                                         }
                                     }} />
                             </div>

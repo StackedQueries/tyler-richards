@@ -20,7 +20,6 @@ const Post = () => {
         const get = async () => {
             const post = await getPost(postId)
             setPost(post)
-            console.log(post)
             const body = await parser.parse(post.body)
             setBody(body)
         }
