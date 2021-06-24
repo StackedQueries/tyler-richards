@@ -8,6 +8,7 @@
 
 tyler-richards.com {
     tls tyler@tyler-richards.com
+    root * /srv
        route {
         try_files {path} {path}/ /index.html
         file_server
