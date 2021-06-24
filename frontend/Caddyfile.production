@@ -8,11 +8,13 @@
 
 tyler-richards.com {
     tls tyler@tyler-richards.com
-    root * /srv
-    file_server
+       route {
+        try_files {path} {path}/ /index.html
+        file_server
+    }
 }
 
-api.tyler-richards {
+https://api.tyler-richards {
     tls tyler@tyler-richards.com
     reverse_proxy api:5000
 }
