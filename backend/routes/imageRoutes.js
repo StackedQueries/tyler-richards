@@ -9,14 +9,15 @@ const { auth, admin } = require('../middleware')
 
 // IMAGE STORAGE
 //TODO: MOVE TO DIFF FILE
+
 const storage = multer.diskStorage({
-    destination: (req, file, callback) => {
-        callback(null, './public/imgs')
-    },
-    filename: (req, file, callback) => {
-        callback(null, uuidv4() + file.originalname)
+    destination: './public/imgs',
+    filename: function (req, file, cb) {
+        return cb(null, uuidv4() + file.originalname)
     }
-})
+});
+
+
 
 const upload = multer({ storage })
 
