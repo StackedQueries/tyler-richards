@@ -2,6 +2,7 @@
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
 } from "react-router-dom";
 import Home from './components/views/Home';
 import Work from './components/views/Work';
@@ -14,6 +15,7 @@ import Login from './components/views/Login'
 import React, { useState, useEffect } from 'react';
 import Dashboard from './components/views/Dashboard'
 import ImageManager from './components/ImageManager'
+import NotFound from "./components/views/NotFound";
 import 'cors'
 import './styles/app.scss'
 import './styles/media.scss'
@@ -24,6 +26,7 @@ function App() {
   return (
     <Router>
       <ViewportProvider>
+        <Switch>
         <Route path='/work' render={props => <Work />} />
         <Route path="/blog/:postId" render={props => <Post />} />
         <Route path='/blog' exact render={props => <Blog />} />
@@ -31,10 +34,11 @@ function App() {
         <Route path='/updatePost/:postId' render={props => <MakePost />} />
         <Route path='/makePost' render={props => <MakePost />} />
         <Route path='/contact' render={Contact} />
-        <Route path='/testing' render={props => <ImageManager />} />
         <Route path='/Login' render={props => <Login />} />
         <Route path='/dashboard' render={Dashboard} />
         <Route path='/' exact render={props => <Home />} />
+        <Route render={props => <NotFound/>}/>
+        </Switch>
       </ViewportProvider>
     </Router>
   );
