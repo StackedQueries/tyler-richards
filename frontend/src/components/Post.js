@@ -15,7 +15,7 @@ const Post = ({ post }) => {
     const isAdmin = user.authData?.result.status
     const [img, setImg] = useState(false)
     useEffect(() => {
-        setImg(post.image?.url ? "http://localhost:5000/" + post.image.url : "https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80")
+        setImg(post.image?.url ? process.env.REACT_APP_API_URL+ post.image.url : "https://images.unsplash.com/photo-1493612276216-ee3925520721?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80")
 
     }, [])
 

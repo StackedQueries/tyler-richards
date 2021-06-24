@@ -116,7 +116,7 @@ const MakePost = (props) => {
 
             <form className="make-post" onSubmit={onSubmit}>
                 <div className="form-section">
-                    {image && <div><h6>image is</h6> <img width="100px" src={"http://localhost:5000/" + image.url} />
+                    {image && <div><h6>image is</h6> <img width="100px" src={process.env.REACT_APP_API_URL + image.url} />
                     </div>}
                     <label>Title
                     <input

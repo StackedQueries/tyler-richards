@@ -33,7 +33,7 @@ const Post = () => {
             <div className='page-content'>
                 <h1 className="page-title">{post.title}</h1>
                 <div className="post-section">
-                {post.image?.url ? <img width="75%" src={"http://localhost:5000/" + post.image.url}></img>
+                {post.image?.url ? <img width="75%" src={process.env.REACT_APP_API_URL + post.image.url}></img>
                     : null}
                 <div  dangerouslySetInnerHTML={{ __html: body }} />
                 </div>

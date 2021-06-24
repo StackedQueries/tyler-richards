@@ -31,7 +31,7 @@ const ImageManager = ({ setImage }) => {
             {images.map((img, index) =>
                 <div key={index}>
                     <input type="radio" id={img.id} name="images" value={img.id} onChange={() => setImage(img)} />
-                    <img width="100px" src={"http://localhost:5000/" + img.url} />
+                    <img width="100px" src={process.env.REACT_APP_API_URL + img.url} />
                     <button onClick={(e) => onDelete(e, img.id)}>Delete</button>
 
                 </div>)}
