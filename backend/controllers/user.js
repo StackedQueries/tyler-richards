@@ -8,7 +8,7 @@ const secret = process.env.JWT_SECRET;
 //SIGN IN
 module.exports.signin = async (req, res) => {
     const { email, password } = req.body;
-
+    email = email.toLowerCase();
     try {
         const oldUser = await User.findOne({ email });
 
@@ -31,6 +31,7 @@ module.exports.signin = async (req, res) => {
 //SIGNUP
 module.exports.signup = async (req, res) => {
     const { email, password, firstName, lastName } = req.body;
+    email = email.toLowerCase();
     console.log(email, password, firstName, lastName)
     try {
         const oldUser = await User.findOne({ email });
