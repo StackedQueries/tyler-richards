@@ -15,5 +15,4 @@ tyler-richards.com {
 api.tyler-richards:80 {
     tls tyler@tyler-richards.com
     reverse_proxy api:5000
-    file_server
 }
