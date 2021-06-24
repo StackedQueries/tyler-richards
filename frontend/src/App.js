@@ -24,7 +24,7 @@ import { ViewportProvider } from "./utils/ViewportProvider";
 function App() {
 
   return (
-    <Router>
+    <Router  baseline='/'>
       <ViewportProvider>
         <Switch>
         <Route path='/work' render={props => <Work />} />
