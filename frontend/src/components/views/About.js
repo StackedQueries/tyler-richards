@@ -26,9 +26,9 @@ const About = (props) => {
                             React, Express, and tools like Docker and MongoDB to create things.
                         </p>
                     </div>
-                    {size!=="large" ? <img className="about-pic" src={`${ process.env.REACT_APP_API_URL}/imgs/d407d99a-f72f-47df-aa6d-3514beb1b1031604619045588.jpg`} alt="Picture of me" />:null}
+                    {size!=="large" ? <img className="about-pic" src={`${ process.env.REACT_APP_API_URL}/imgs/568818c0-4046-4430-97a9-36905374b9f91604619045588.jpg`} alt="Picture of me" />:null}
                     <div className="row">
-                       {size==="large" ? <img className="about-pic" src={`${ process.env.REACT_APP_API_URL}/imgs/d407d99a-f72f-47df-aa6d-3514beb1b1031604619045588.jpg`} alt="Picture of me" />:null}
+                       {size==="large" ? <img className="about-pic" src={`${ process.env.REACT_APP_API_URL}/imgs/568818c0-4046-4430-97a9-36905374b9f91604619045588.jpg`} alt="Picture of me" />:null}
                         <div>
                             <p>I’m super competitive and love a good challenge. In my free time, I love to learn new things, play video games, and adventure outdoors. </p>
                             <h3 className="section-heading center-text">
