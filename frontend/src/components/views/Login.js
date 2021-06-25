@@ -76,13 +76,13 @@ const Login = () => {
                         }                    <div>
                             <input type="text" name="email" aria-label="email"
                                 className="textbox"
-                                placeholder="email"
+                                placeholder="Email"
                                 onChange={handleChange} />
                         </div>
                         <div>
                             <input type="password" name="password"
                                 className="textbox"
-                                placeholder="password"
+                                placeholder="Password"
                                 aria-label="password" onChange={handleChange} />
                         </div>
                         {isLogin ? null :
