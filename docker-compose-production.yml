@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
     env_file: ./backend/config/${ENV}.env
     volumes:
-      - /public
+      - public:/usr/src/app/public
     ports:
       - "5000:5000"
     networks:
