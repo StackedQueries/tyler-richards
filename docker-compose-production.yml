@@ -30,4 +30,4 @@ volumes:
   caddy-config:
     driver: local
   public:
-    driver:local
+    driver: local
