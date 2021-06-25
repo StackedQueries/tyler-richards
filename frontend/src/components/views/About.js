@@ -34,14 +34,14 @@ const About = (props) => {
                             <h3 className="section-heading center-text">
                                 Things I also enjoy
                             </h3>
-                            <ol className="center-text">
+                            <ul className="center-text">
                                 <li>Coffee</li>
                                 <li>Fishing</li>
                                 <li>Food</li>
                                 <li>Naps</li>
                                 <li>Coffee</li>
                                 <li>Making Lists</li>
-                            </ol>
+                            </ul>
                         </div>
 
                     </div>

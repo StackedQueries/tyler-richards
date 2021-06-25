@@ -42,7 +42,7 @@ const Login = () => {
         }
     };
 
-    const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+    const handleChange = (e) => {setAuth(true); setForm({ ...form, [e.target.name]: e.target.value });}
 
     /* 
         const googleError = () => {
@@ -104,7 +104,7 @@ const Login = () => {
                     </div>
                     <div>
                         <button className="button" type="submit">{!isLogin ? "Register" : "Login"}</button>
-                        <button className="button secondary-button" type="button" onClick={() => setIsLogin(!isLogin)}>{isLogin ? "Register" : "Login"}</button>
+                        <button className="button secondary-button" type="button" onClick={() => {setIsLogin(!isLogin); setAuth(true)}}>{isLogin ? "Register" : "Login"}</button>
                     </div>
 
                 </form>
