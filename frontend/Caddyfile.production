@@ -22,5 +22,5 @@ api.tyler-richards.com {
 
 jenkins.tyler-richards.com {
     tls tyler@tyler-richards.com
-    reverse_proxy jenkins-blueocean:8080
+    reverse_proxy 192.168.1.210:8080
 }
