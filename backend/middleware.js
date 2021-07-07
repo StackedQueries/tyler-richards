@@ -6,7 +6,7 @@ const secret = process.env.JWT_SECRET;
 module.exports.auth = async (req, res, next) => {
     try {
         console.log(req.headers)
-        if (process.env.BUILD === "DEV") {next(); return}
+        if (process.env.NODE_ENV === "dev") {next(); return}
         if (req.headers.authorization) {
             const token = req.headers.authorization.split(" ")[1];
             const isCustomAuth = token.length < 500;

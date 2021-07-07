@@ -4,29 +4,22 @@ import {
     useParams
 } from "react-router-dom";
 import Footer from '../Footer';
-import edjsParser from "editorjs-parser";
-
 import { getPost } from '../../actions/posts'
-import { useDispatch, useSelector } from 'react-redux';
+import ContentViewer from '../ContentViewer'
 import Header from '../../components/Header';
 import '../../styles/post.scss'
 const Post = () => {
-    const parser = new edjsParser("");
-    const [body, setBody] = useState('loading...')
-    const [post, setPost] = useState('loading')
+    const [post, setPost] = useState("");
     const { postId } = useParams();
 
     useEffect(() => {
         const get = async () => {
-            const post = await getPost(postId)
-            setPost(post)
-            const body = await parser.parse(post.body)
-            setBody(body)
-        }
-        get()
+            const post = await getPost(postId);
+            await setPost(post);
+        };
+        get();
+    }, []) 
 
-
-    }, [])
     return (
         <>
             <Header />
@@ -35,7 +28,8 @@ const Post = () => {
                 <div className="post-section">
                 {post.image?.url ? <img width="75%" src={process.env.REACT_APP_API_URL + post.image.url}></img>
                     : null}
-                <div  dangerouslySetInnerHTML={{ __html: body }} />
+
+                {post && <ContentViewer content={post.body} /> }
                 </div>
             </div>
             <Link to="/" className='custom-btn btn-12'><span>Click!</span><span>return&#x022B3;</span></Link>
