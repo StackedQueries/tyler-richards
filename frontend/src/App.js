@@ -11,6 +11,7 @@ import About from './components/views/About';
 import Blog from './components/views/Blog';
 import Post from './components/views/Post';
 import MakePost from './components/views/MakePost'
+import DWD from "./components/views/DWD";
 import Login from './components/views/Login'
 import React, { useState, useEffect } from 'react';
 import Dashboard from './components/views/Dashboard'
@@ -34,7 +35,8 @@ function App() {
         <Route path='/updatePost/:postId' render={props => <MakePost />} />
         <Route path='/makePost' render={props => <MakePost />} />
         <Route path='/contact' render={Contact} />
-        <Route path='/Login' render={props => <Login />} />
+        <Route path='/Login' render={props => <Login />} /> 
+        <Route path="/dwd" render={props => <DWD />}  />
         <Route path='/dashboard' render={Dashboard} />
         <Route path='/' exact render={props => <Home />} />
         <Route render={props => <NotFound/>}/>

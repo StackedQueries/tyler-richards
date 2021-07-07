@@ -1,15 +1,15 @@
 import Header from '../Header';
 import Footer from '../Footer';
 import Connection from '../Connection';
-const Contact = () => {
+const DWD = () => {
     return (
         <div>
             <Header />
             <div className='page-content'>
                 <h1 className='page-title'>Contact</h1>
                 <Connection content={{
-                    header: "Want to reach out?",
-                    input1: "Looking to build a project, or maybe just a little help? Feel free to reach out to me and let me know what you have going on.",
+                    header: "Looking for Defiant Web Design?",
+                    input1: "You're in the right place! I'm Tyler and I work on websites, programs, and all different types of tech. Feel free to look around and let me know if you're interested in myself for one of your projects.",
                     input2: "Reach out at Tyler@Tyler-Richards.com",
                 }}/>
 
@@ -21,4 +21,4 @@ const Contact = () => {
     )
 }
 
-export default Contact
+export default DWD
