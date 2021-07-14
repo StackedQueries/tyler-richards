@@ -15,6 +15,15 @@ tyler-richards.com {
     }
 }
 
+defiantwebdesign.com {
+      tls tyler@tyler-richards.com
+      root * /srv
+       route {
+        try_files {path} {path}/ /index.html
+        file_server
+    }
+}
+
 api.tyler-richards.com {
     tls tyler@tyler-richards.com
     reverse_proxy api:5000
