@@ -17,7 +17,7 @@ const schema = Joi.object({
 
     password: Joi.string()
     //Minimum eight characters, at least one uppercase letter, one lowercase letter and one number
-        .pattern(new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$")) 
+        .pattern(new RegExp("(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$")) 
         .required(),
 
     email: Joi.string()
