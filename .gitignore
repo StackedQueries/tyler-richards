@@ -36,3 +36,4 @@ frontend/yarn.lock
 .gitignore
 frontend/config/**
 frontend/config/.env.dev
+frontend/package-lock.json
