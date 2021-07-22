@@ -23,6 +23,15 @@ const Posts = ({ posts, amount }) => {
                 if (posts[i + j]) {
 
                     temp.push([posts[i + j]])
+                    console.log(posts[i + j])
+                } else {
+                    temp.push([{
+                        "kind": "Post",
+                        "author": null,
+                        "title": "Coming soon!",
+                        "image": null,
+                        "desc": "More Posts and projects are soon to come!"
+                    }])
                 }
             }
             postrow.push(temp)
