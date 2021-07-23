@@ -31,9 +31,10 @@ const Post = () => {
 
                 {post && <ContentViewer content={post.body} /> }
                 </div>
-            </div>
+
             <Link to="/" className='button'>Return</Link>
 
+            </div>
             <Footer />
         </>
     )

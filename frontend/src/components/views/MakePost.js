@@ -27,13 +27,13 @@ const MakePost = (props) => {
     const tags = useSelector((state) => state.tags);
     useEffect(() => {
         const get = async () => {
-            console.log('test');
             await dispatch(getTags());
 
-        console.log(tags);
-        console.log(state);
-        console.log(postTags);
+            console.log(tags);
+            console.log(state);
+            console.log(postTags);
             if (postId) {
+                console.log("test")
                 const post = await getPost(postId);
                 console.log(post);
                 setBody(post.body);
@@ -91,9 +91,6 @@ const MakePost = (props) => {
                 return value !== e.target.id;
             }))
         }
-        console.log(tags);
-        console.log(state);
-        console.log(postTags);
     }
 
     return (
