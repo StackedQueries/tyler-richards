@@ -32,7 +32,7 @@ const Post = () => {
                 {post && <ContentViewer content={post.body} /> }
                 </div>
             </div>
-            <Link to="/" className='button'><span>Click!</span><span>return&#x022B3;</span></Link>
+            <Link to="/" className='button'>Return</Link>
 
             <Footer />
         </>
