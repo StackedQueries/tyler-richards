@@ -167,10 +167,10 @@ const MakePost = (props) => {
                     /> {tag.tagName}</label>)})}
                 </div>
 
-                <button type="button" className='custom-btn btn-12' onClick={() => history.push('/')}>
-                    <span>Click!</span><span>go back &#x022B3;</span></button>
-                <button type='submit' className='custom-btn btn-12'>
-                    <span>Click!</span><span>submit post &#x022B3;</span></button>
+                <button type="button" className='button' onClick={() => history.push('/')}>
+                    Go Back</button>
+                <button type='submit' className='button secondary-button'>
+                    Submit!</button>
             </form>
 
             <Footer />
