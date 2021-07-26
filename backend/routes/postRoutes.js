@@ -1,17 +1,17 @@
-const express = require('express');
-const router = express.Router();
-const posts = require('../controllers/posts');
-const catchAsync = require('../utils/catchAsync');
+const express = require('express')
+const router = express.Router()
+const posts = require('../controllers/posts')
+const catchAsync = require('../utils/catchAsync')
 const { auth, admin } = require('../middleware')
 
-//POST ROUTES
+// POST ROUTES
 
 router.route('/')
-    .get( catchAsync( posts.index ))
-    .post( auth, admin, posts.createPost)
+  .get(catchAsync(posts.index))
+  .post(auth, admin, posts.createPost)
 router.route('/:id')
-    .get(catchAsync(posts.getPost))
-    .put(auth, admin, catchAsync(posts.updatePost))
-    .delete(auth, admin, catchAsync(posts.deletePost));
+  .get(catchAsync(posts.getPost))
+  .put(auth, admin, catchAsync(posts.updatePost))
+  .delete(auth, admin, catchAsync(posts.deletePost))
 
-module.exports = router;
+module.exports = router

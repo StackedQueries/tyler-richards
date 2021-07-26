@@ -1,11 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const quotes = require('../controllers/quotes');
-const catchAsync = require('../utils/catchAsync');
+const express = require('express')
+const router = express.Router()
+const quotes = require('../controllers/quotes')
+const catchAsync = require('../utils/catchAsync')
 
-//QUOTE ROUTE
+// QUOTE ROUTE
 
 router.route('/')
-    .get(catchAsync(quotes.index))
+  .get(catchAsync(quotes.index))
 
-module.exports = router;
+module.exports = router

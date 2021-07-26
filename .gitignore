@@ -37,3 +37,4 @@ frontend/yarn.lock
 frontend/config/**
 frontend/config/.env.dev
 frontend/package-lock.json
+backend/package-lock.json
