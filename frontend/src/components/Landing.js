@@ -1,45 +1,45 @@
 import '../styles/landing.scss'
 import Nav from './Nav'
-import React, { useState, useEffect, useRef } from "react";
-import { getQuote } from '../api';
-import { GetCurrentSize } from '../utils/ViewportProvider';
+import React, { useState, useEffect, useRef } from 'react'
+import { getQuote } from '../api'
+import { GetCurrentSize } from '../utils/ViewportProvider'
 const Landing = () => {
-    const size = GetCurrentSize();
-    const locale = 'en';
-    const [secondQuote, setSecondQuote] = useState(true);
-    const [today, setDate] = useState(new Date());
-    const [quote, setQuote] = useState({
-        q: '',
-        a: ''
-    });
+  const size = GetCurrentSize()
+  const locale = 'en'
+  const [secondQuote, setSecondQuote] = useState(true)
+  const [today, setDate] = useState(new Date())
+  const [quote, setQuote] = useState({
+    q: '',
+    a: ''
+  })
 
-    useEffect(() => {
-        const fetchQuote = async () => {
-            const q = await getQuote()
-            setQuote(q.data);
-        }
-        fetchQuote();
+  useEffect(() => {
+    const fetchQuote = async () => {
+      const q = await getQuote()
+      setQuote(q.data)
+    }
+    fetchQuote()
 
-        const timer = setInterval(() => {
-            setDate(new Date());
-        }, 1000);
-        return () => {
-            clearInterval(timer);
-        }
-    }, []);
+    const timer = setInterval(() => {
+      setDate(new Date())
+    }, 1000)
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
 
-    useEffect(()=>{
-        if (size !== "large"){
-            setSecondQuote(false)
-        }
-    }, [size])
+  useEffect(() => {
+    if (size !== 'large') {
+      setSecondQuote(false)
+    }
+  }, [size])
 
-    const day = today.toLocaleDateString(locale, { weekday: 'long' });
-    const date = `${day}, ${today.getDate()} ${today.toLocaleDateString(locale, { month: 'long' })}\n\n`;
-    const hour = today.getHours();
-    const time = today.toLocaleTimeString(locale);
+  const day = today.toLocaleDateString(locale, { weekday: 'long' })
+  const date = `${day}, ${today.getDate()} ${today.toLocaleDateString(locale, { month: 'long' })}\n\n`
+  const hour = today.getHours()
+  const time = today.toLocaleTimeString(locale)
 
-    return (
+  return (
 
         <div className="full-landing">
             <div className="container">
@@ -59,7 +59,7 @@ const Landing = () => {
                 </div>
             </div>
         </div>
-    )
+  )
 }
 
 export default Landing

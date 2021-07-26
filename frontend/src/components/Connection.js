@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Connection = ({ content }) => {
-    return (
+  return (
         <>
             <div className='infoform'>
                 <h3 className="page-header">{content.header}</h3>
@@ -10,7 +10,7 @@ const Connection = ({ content }) => {
             </div>
         </>
 
-    )
+  )
 }
 
 export default Connection

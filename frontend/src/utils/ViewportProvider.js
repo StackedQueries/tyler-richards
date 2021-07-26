@@ -1,33 +1,33 @@
-import React from "react";
+import React from 'react'
 
-const viewportContext = React.createContext({});
+const viewportContext = React.createContext({})
 
 export const ViewportProvider = ({ children }) => {
-  const [width, setWidth] = React.useState(window.innerWidth);
-  const [height, setHeight] = React.useState(window.innerHeight);
+  const [width, setWidth] = React.useState(window.innerWidth)
+  const [height, setHeight] = React.useState(window.innerHeight)
   const handleWindowResize = () => {
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-  };
+    setWidth(window.innerWidth)
+    setHeight(window.innerHeight)
+  }
 
   React.useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
-    return () => window.removeEventListener("resize", handleWindowResize);
-  }, []);
+    window.addEventListener('resize', handleWindowResize)
+    return () => window.removeEventListener('resize', handleWindowResize)
+  }, [])
 
   return (
     <viewportContext.Provider value={{ width, height }}>
       {children}
     </viewportContext.Provider>
-  );
-};
+  )
+}
 
 export const useViewport = () => {
-  const { width, height } = React.useContext(viewportContext);
-  return { width, height };
-};
+  const { width, height } = React.useContext(viewportContext)
+  return { width, height }
+}
 
 export const GetCurrentSize = () => {
-  const { width, height } = React.useContext(viewportContext);
-  return width < 641 ? "small" : width < 1007 ? "medium" : "large";
+  const { width, height } = React.useContext(viewportContext)
+  return width < 641 ? 'small' : width < 1007 ? 'medium' : 'large'
 }

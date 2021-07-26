@@ -1,32 +1,32 @@
-import Image from './Image';
-import { deleteImage, getImages, uploadImages } from '../actions/images';
+import Image from './Image'
+import { deleteImage, getImages, uploadImages } from '../actions/images'
 
-import React, { useState, useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 const ImageManager = ({ setImage }) => {
-    const [name, setName] = useState("");
-    const [selectedFile, setSelectedFile] = useState(null);
+  const [name, setName] = useState('')
+  const [selectedFile, setSelectedFile] = useState(null)
 
-    const dispatch = useDispatch();
-    
-    const images = useSelector((state) => state.images);
-    const fetchImages = () =>  dispatch(getImages())
-    useEffect(() => {
-        fetchImages()
-    }, [])
+  const dispatch = useDispatch()
 
-    const onDelete = async (e, imgID) => {
-        e.preventDefault()
-        await dispatch(deleteImage(imgID))
-        fetchImages()
-    }
+  const images = useSelector((state) => state.images)
+  const fetchImages = () => dispatch(getImages())
+  useEffect(() => {
+    fetchImages()
+  }, [])
 
-    const onSubmit = async (e) => {
-        e.preventDefault()
-        dispatch(uploadImages(selectedFile[0]))
-        fetchImages()
-    }
-    return (
+  const onDelete = async (e, imgID) => {
+    e.preventDefault()
+    await dispatch(deleteImage(imgID))
+    fetchImages()
+  }
+
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    dispatch(uploadImages(selectedFile[0]))
+    fetchImages()
+  }
+  return (
         <div className="page-content">
             {images.map((img, index) =>
                 <div key={index}>
@@ -53,7 +53,7 @@ const ImageManager = ({ setImage }) => {
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
-    )
+  )
 }
 
 export default ImageManager

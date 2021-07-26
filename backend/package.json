@@ -29,5 +29,5 @@
     "start": "node app.js"
   },
   "author": "Tyler Richards",
-  "license": "ISC"
+  "license": "MIT"
 }

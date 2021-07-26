@@ -1,16 +1,16 @@
-export const CREATE = 'CREATE';
-export const UPDATE = 'UPDATE';
-export const DELETE = 'DELETE';
-export const FETCH_ALL = 'FETCH_ALL';
-export const LIKE = 'LIKE';
+export const CREATE = 'CREATE'
+export const UPDATE = 'UPDATE'
+export const DELETE = 'DELETE'
+export const FETCH_ALL = 'FETCH_ALL'
+export const LIKE = 'LIKE'
 
-export const AUTH = 'AUTH';
-export const LOGOUT = 'LOGOUT';
+export const AUTH = 'AUTH'
+export const LOGOUT = 'LOGOUT'
 
-export const IMAGEUPLOAD = "IMAGEUPLOAD"
-export const IMAGEDELETE = "IMAGEDELETE"
-export const IMAGEGET = "IMAGEGET"
+export const IMAGEUPLOAD = 'IMAGEUPLOAD'
+export const IMAGEDELETE = 'IMAGEDELETE'
+export const IMAGEGET = 'IMAGEGET'
 
-export const TAGGET = 'TAGGET';
-export const TAGDELETE = 'TAGDELETE';
-export const TAGCREATE = 'TAGCREATE';
+export const TAGGET = 'TAGGET'
+export const TAGDELETE = 'TAGDELETE'
+export const TAGCREATE = 'TAGCREATE'

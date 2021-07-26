@@ -1,30 +1,27 @@
-import Posts from '../Posts';
-import Landing from '../Landing';
-import '../../styles/landing.scss';
-import { getPostsbyTag } from '../../actions/posts';
-import { useSelector } from 'react-redux';
-import React, { useState, useEffect } from 'react';
+import Posts from '../Posts'
+import Landing from '../Landing'
+import '../../styles/landing.scss'
+import { getPostsbyTag, getPosts } from '../../actions/posts'
+import { useSelector, useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react'
 import Footer from '../Footer'
-import { Route, Link, withRouter } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getPosts } from '../../actions/posts';
+import { Route, Link, withRouter } from 'react-router-dom'
+
 const Home = () => {
-    const [projects, setProjects] = useState([]);
-    const dispatch = useDispatch()
+  const [projects, setProjects] = useState([])
+  const dispatch = useDispatch()
 
-    const posts = useSelector((state) => state.posts);
-    useEffect(() => {
-        dispatch(getPosts())
-        const get = async () => {
-            const projects = await getPostsbyTag("project");
-            setProjects(projects);
-        };
-        get()
-    }, [])
+  const posts = useSelector((state) => state.posts)
+  useEffect(() => {
+    dispatch(getPosts())
+    const get = async () => {
+      const projects = await getPostsbyTag('project')
+      setProjects(projects)
+    }
+    get()
+  }, [])
 
-
-
-    return (
+  return (
         <div>
             <Landing />
             <div className='page-content'>
@@ -61,16 +58,16 @@ const Home = () => {
                     </div>
                 </div> */}
                 <h3 className='page-title'>Articles</h3>
-                <Link to={`/blog/`} className='see-more'>See More {'>>'}</Link>
+                <Link to={'/blog/'} className='see-more'>See More {'>>'}</Link>
                 {posts && posts.length > 0 ? <Posts posts={posts} amount={3} /> : <p>No posts Currently</p>}
 
                 <h3 className='page-title'>Projects</h3>
-                <Link to={`/work/`} className='see-more'>See More {'>>'}</Link>
+                <Link to={'/work/'} className='see-more'>See More {'>>'}</Link>
                 {projects && projects.length > 0 ? <Posts posts={projects} amount={3} /> : <p>No projects Currently</p>}
             </div>
             <Footer />
         </div >
-    )
+  )
 }
 
 export default Home

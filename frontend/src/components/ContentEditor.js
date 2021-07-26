@@ -121,34 +121,35 @@ const MenuBar = ({ editor }) => {
 }
 
 export default props => {
-  let content = "";
-  if (props.content){
-   content = props.content;
-  }else{
-     content = {
-    "type": "doc",
-    "content": [
-      {
-        "type": "paragraph",
-        "content": [
-          {
-            "type": "text",
-            "text": "It’s 1987. You can’t turn on a radio, or go to a mall without hearing Olivia Newton-John’s hit song, Physical."
-          }
-        ]
-      }
-    ]
-  }};
+  let content = ''
+  if (props.content) {
+    content = props.content
+  } else {
+    content = {
+      type: 'doc',
+      content: [
+        {
+          type: 'paragraph',
+          content: [
+            {
+              type: 'text',
+              text: 'It’s 1987. You can’t turn on a radio, or go to a mall without hearing Olivia Newton-John’s hit song, Physical.'
+            }
+          ]
+        }
+      ]
+    }
+  };
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit
     ],
     content,
-    onUpdate() {
-      const json = this.getJSON();
-      props.saveData(json);
+    onUpdate () {
+      const json = this.getJSON()
+      props.saveData(json)
       // send the content to an API here
-    },
+    }
   })
 
   return (

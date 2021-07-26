@@ -1,18 +1,16 @@
 
-import Header from '../Header';
-import Footer from '../Footer';
-import Connection from '../Connection';
-import { GetCurrentSize } from '../../utils/ViewportProvider';
+import Header from '../Header'
+import Footer from '../Footer'
+import Connection from '../Connection'
+import { GetCurrentSize } from '../../utils/ViewportProvider'
 import { useEffect, useState } from 'react'
 const About = (props) => {
-    
-    const size = GetCurrentSize();
-    useEffect(() => {
+  const size = GetCurrentSize()
+  useEffect(() => {
+    console.log(size)
+  }, [size])
 
-        console.log(size);
-    }, [size]);
-
-    return (
+  return (
         <div>
             <Header />
             <div className='page-content'>
@@ -26,9 +24,9 @@ const About = (props) => {
                             React, Express, and tools like Docker and MongoDB to create things.
                         </p>
                     </div>
-                    {size!=="large" ? <img className="about-pic" src={`${ process.env.REACT_APP_API_URL}/imgs/568818c0-4046-4430-97a9-36905374b9f91604619045588.jpg`} alt="Picture of me" />:null}
+                    {size !== 'large' ? <img className="about-pic" src={`${process.env.REACT_APP_API_URL}/imgs/568818c0-4046-4430-97a9-36905374b9f91604619045588.jpg`} alt="Picture of me" /> : null}
                     <div className="row">
-                       {size==="large" ? <img className="about-pic" src={`${ process.env.REACT_APP_API_URL}/imgs/568818c0-4046-4430-97a9-36905374b9f91604619045588.jpg`} alt="Picture of me" />:null}
+                       {size === 'large' ? <img className="about-pic" src={`${process.env.REACT_APP_API_URL}/imgs/568818c0-4046-4430-97a9-36905374b9f91604619045588.jpg`} alt="Picture of me" /> : null}
                         <div>
                             <p>I’m super competitive and love a good challenge. In my free time, I love to learn new things, play video games, and adventure outdoors. </p>
                             <h3 className="section-heading center-text">
@@ -53,18 +51,17 @@ const About = (props) => {
                             and I promise I won't bite!
                         </p>
                         <Connection content={{
-                            header: "Like My Stuff?",
-                            input1: "Looking to build a project, or maybe just a little help? Feel free to reach out to me and let me know what you have going on.",
+                          header: 'Like My Stuff?',
+                          input1: 'Looking to build a project, or maybe just a little help? Feel free to reach out to me and let me know what you have going on.'
                         }}
                         />
-
 
                         <a href="/contact" className="button ">Contact Me!</a>
                     </div>
             </div >
             <Footer />
         </div >
-    )
+  )
 }
 
 export default About

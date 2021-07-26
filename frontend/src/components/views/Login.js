@@ -1,56 +1,55 @@
-import Header from '../Header';
-import Footer from '../Footer';
+import Header from '../Header'
+import Footer from '../Footer'
 
-import { useDispatch } from 'react-redux';
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { GoogleLogin } from 'react-google-login';
+import { useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+import { GoogleLogin } from 'react-google-login'
 
-
-import { signin, signup } from '../../actions/auth';
-const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
+import { signin, signup } from '../../actions/auth'
+const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' }
 
 const Login = () => {
-    const dispatch = useDispatch();
-    const history = useHistory();
-    const [isLogin, setIsLogin] = useState(true)
-    const [passMatch, setPassMatch] = useState(null)
-    const [form, setForm] = useState(initialState);
-    const [auth, setAuth] = useState(true)
+  const dispatch = useDispatch()
+  const history = useHistory()
+  const [isLogin, setIsLogin] = useState(true)
+  const [passMatch, setPassMatch] = useState(null)
+  const [form, setForm] = useState(initialState)
+  const [auth, setAuth] = useState(true)
 
-    /*     const googleSuccess = async (res) => {
+  /*     const googleSuccess = async (res) => {
             const result = res?.profileObj;
             const token = res?.tokenId;
-    
+
             try {
                 dispatch({ type: AUTH, data: { result, token } });
-    
+
                 history.push('/');
             } catch (error) {
                 console.log(error);
             }
         } */
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (!isLogin) {
-            dispatch(signup(form, history));
-        } else {
-            try {
-                setAuth(await dispatch(signin(form, history)));
-            } catch (error) {
-            }
-        }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!isLogin) {
+      dispatch(signup(form, history))
+    } else {
+      try {
+        setAuth(await dispatch(signin(form, history)))
+      } catch (error) {
+      }
+    }
+  }
 
-    const handleChange = (e) => {setAuth(true); setForm({ ...form, [e.target.name]: e.target.value });}
+  const handleChange = (e) => { setAuth(true); setForm({ ...form, [e.target.name]: e.target.value }) }
 
-    /* 
+  /*
         const googleError = () => {
-    
+
             console.log('sign in was unsuccessful')
         } */
 
-    return (
+  return (
         <div>
 
             <Header />
@@ -59,9 +58,10 @@ const Login = () => {
                 <form className="infoform" onSubmit={handleSubmit}>
                     <h2 className="page-header">{isLogin ? 'Login' : 'Register'}</h2>
                     <div className="infoform input-section">
-                        {isLogin ? null :
+                        {isLogin
+                          ? null
 
-                            <div>
+                          : <div>
                                 <input type="text" name="firstName"
 
                                     className="textbox"
@@ -85,26 +85,27 @@ const Login = () => {
                                 placeholder="Password"
                                 aria-label="password" onChange={handleChange} />
                         </div>
-                        {isLogin ? null :
-                            <div>
+                        {isLogin
+                          ? null
+                          : <div>
                                 <input type="password" name="verifyPassword"
                                     aria-label="Verify Password"
                                     className="textbox"
                                     placeholder="Verify Password"
                                     onChange={(e) => {
-                                        if (e.target.value !== form.password) {
-                                            setPassMatch(false)
-                                        } else {
-                                            setPassMatch(true)
-                                        }
+                                      if (e.target.value !== form.password) {
+                                        setPassMatch(false)
+                                      } else {
+                                        setPassMatch(true)
+                                      }
                                     }} />
                             </div>
                         }
                         {!auth ? <p>Login has failed. Please try again</p> : null}
                     </div>
                     <div>
-                        <button className="button" type="submit">{!isLogin ? "Register" : "Login"}</button>
-                        <button className="button secondary-button" type="button" onClick={() => {setIsLogin(!isLogin); setAuth(true)}}>{isLogin ? "Register" : "Login"}</button>
+                        <button className="button" type="submit">{!isLogin ? 'Register' : 'Login'}</button>
+                        <button className="button secondary-button" type="button" onClick={() => { setIsLogin(!isLogin); setAuth(true) }}>{isLogin ? 'Register' : 'Login'}</button>
                     </div>
 
                 </form>
@@ -125,8 +126,7 @@ const Login = () => {
             </div>
             <Footer />
         </div >
-    )
+  )
 }
 
 export default Login
-
