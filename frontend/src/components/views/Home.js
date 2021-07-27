@@ -16,7 +16,7 @@ const Home = () => {
     dispatch(getPosts())
     const get = async () => {
       const projects = await getPostsbyTag('project')
-      setProjects(projects)
+      setProjects(projects.reverse())
     }
     get()
   }, [])
