@@ -25,6 +25,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+    div{
+        flex-direction: column;
+    }
     .linebox{
     .side {
         font-size:1em;
