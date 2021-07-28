@@ -104,7 +104,7 @@ const Login = () => {
                         {!auth ? <p>Login has failed. Please try again</p> : null}
                     </div>
                     <div>
-                        <button className="button" type="submit">{!isLogin ? 'Register' : 'Login'}</button>
+                        <button className="button" type="submit">{'Submit'}</button>
                         <button className="button secondary-button" type="button" onClick={() => { setIsLogin(!isLogin); setAuth(true) }}>{isLogin ? 'Register' : 'Login'}</button>
                     </div>
 
