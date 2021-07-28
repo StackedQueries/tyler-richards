@@ -141,10 +141,10 @@ nav ul li
   }
   @keyframes animate {
     0% {
-      transform: translate(125vw, 0);
+      transform: translate(100vw, 0);
     }
     100% {
-      transform: translate(-125vw, 0);
+      transform: translate(-100vw, 0);
     }
   }
 
