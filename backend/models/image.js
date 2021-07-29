@@ -9,7 +9,11 @@ const opts = { toJSON: { virtuals: true } }
 const ImageSchema = new Schema({
 
   url: String,
-  filename: String
+  filename: String,
+  unsplash: {
+    required: false,
+    type: Object
+  }
 }, opts)
 
 /* ImageSchema.virtual('thumbnail').get(function () {
