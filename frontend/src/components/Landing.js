@@ -48,7 +48,7 @@ const Landing = () => {
          <div className="full-landing fade-in">
           
       <div className="container" >
-          {bgImage ? <img className="fade-in" src={bgImage?.urls.regular}></img> : null}
+          {bgImage ? <img className="fade-in" src={bgImage?.urls.full}></img> : null}
           <h1 className="landing">
               Tyler Richards
           </h1>
