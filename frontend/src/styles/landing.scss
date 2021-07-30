@@ -42,7 +42,14 @@
     width: 100%;
     h1{
       z-index: 700;
+      
+      -webkit-animation: floating-text 2s ease alternate infinite;
+         -moz-animation: floating-text 2s ease alternate infinite;
+          -ms-animation: floating-text 2s ease alternate infinite;
+           -o-animation: floating-text 2s ease alternate infinite;
+              animation: floating-text 2s ease alternate infinite;
     }
+    
     img{
       position:absolute;
       object-fit: cover;
@@ -88,7 +95,7 @@
     display:flex;
     border-bottom: solid $text-color;
     overflow-x: hidden;
-    
+    background-color: $background-color;
     .side{
         display:flex;
         flex-basis:10%;
@@ -223,3 +230,31 @@ nav ul li
       0% {opacity:0;}
       100% {opacity:1;}
     }
+
+
+
+@-webkit-keyframes floating-text {
+  0% {  
+    -webkit-transform: translateY(.1em);
+  }
+}
+@-moz-keyframes floating-text {
+  0% {  
+    -moz-transform: translateY(.1em);
+  }
+}
+@-ms-keyframes floating-text {
+  0% {  
+    -ms-transform: translateY(.1em);
+  }
+}
+@-o-keyframes floating-text {
+  0% {  
+    -o-transform: translateY(.1em);
+  }
+}
+@keyframes floating-text {
+  0% {  
+    transform: translateY(.1em);
+  }
+}
