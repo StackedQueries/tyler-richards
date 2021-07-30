@@ -49,14 +49,16 @@ module.exports.deleteImage = async (req, res) => {
 }
 
 module.exports.getRandom = async (req,res)=>{
+  let image = null
+
   try {
-  const image = await fetch(
+      image = await fetch(
     `https://api.unsplash.com/photos/random?client_id=${process.env.UNSPLASH_TOKEN}&orientation=landscape&topic=wallpapers`
     )
   } catch (error){
     res.send()
     console.log()
   }
-  const imageFromServer = await image.json()
-  res.send(imageFromServer)
+  image = await image.json()
+  res.send(image)
 }

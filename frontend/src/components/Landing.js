@@ -13,15 +13,6 @@ const Landing = () => {
     a: ''
   })
   const [bgImage, setBgImage] = useState(null)
-  const [imageStyles, setImageStyles] = useState({
-    backgroundSize: 'cover',
-    backgroundPosition:'center',
-    backgroundImage: '',
-    
-  })
-  useEffect(async ()=>{
-    await setImageStyles({...imageStyles, backgroundImage:`url(${bgImage?.urls.full})`})
-  },[bgImage])
 
   useEffect(() => {
     const fetch = async () => {
@@ -54,25 +45,22 @@ const Landing = () => {
 
   return (
       
-         <div className="full-landing">
+         <div className="full-landing fade-in">
           
-      <div className="container" style={imageStyles}>
+      <div className="container" >
+          {bgImage ? <img className="fade-in" src={bgImage?.urls.regular}></img> : null}
           <h1 className="landing">
               Tyler Richards
           </h1>
-          <p>Web Developer</p>
-          {bgImage ? <>
-          <div className="attr">
-            Photo by
-            <a href={`${bgImage.user.html}?utm_source=TylerRichards&utm_medium=referral`}>
-            {bgImage.user.first_name} {bgImage.user.last_name} 
-            </a>
-           on
-            <a href={'https://unsplash.com/?utm_source=TylerRichards&utm_medium=referral'}>Unsplash</a>
-            </div>
-            </> : null}
       </div>
       <div className="bottom">
+          {bgImage ? <>
+          <div className="attr fade-in">
+            Photo by <a href={`${bgImage.user.html}?utm_source=TylerRichards&utm_medium=referral`}>
+            {bgImage.user.first_name} {bgImage.user.last_name} 
+            </a> on <a href={'https://unsplash.com/?utm_source=TylerRichards&utm_medium=referral'}>Unsplash</a>
+            </div>
+            </> : null}
           <Nav classItems="headerNav" />
           <div className='linebox'>
               <p className='side'>{date}</p>
