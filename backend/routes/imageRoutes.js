@@ -24,6 +24,9 @@ router.route('/')
   .get(catchAsync(images.index))
   .post(auth, admin, upload.array('images'), images.uploadArray)
 
+router.route('/random')
+  .get(catchAsync(images.getRandom))
+
 router.route('/:id')
   .get(catchAsync(images.getImage))
   .delete(auth, admin, catchAsync(images.deleteImage))

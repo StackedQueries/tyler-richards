@@ -1,5 +1,6 @@
 const Image = require('../models/image')
 const fs = require('fs')
+const fetch = require('node-fetch')
 
 // UPLOAD ARRAY
 // TODO: Upload whole instead of for loop?
@@ -44,5 +45,20 @@ module.exports.deleteImage = async (req, res) => {
     await Image.findByIdAndDelete(req.params.id)
   }
 
+  res.send(image)
+}
+
+module.exports.getRandom = async (req,res)=>{
+  let image = null
+
+  try {
+      image = await fetch(
+    `https://api.unsplash.com/photos/random?client_id=${process.env.UNSPLASH_TOKEN}&orientation=landscape&topic=wallpapers`
+    )
+  } catch (error){
+    res.send()
+    console.log()
+  }
+  image = await image.json()
   res.send(image)
 }

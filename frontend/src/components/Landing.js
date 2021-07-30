@@ -1,7 +1,7 @@
 import '../styles/landing.scss'
 import Nav from './Nav'
 import React, { useState, useEffect, useRef } from 'react'
-import { getQuote } from '../api'
+import { getQuote, getRandomImage } from '../api'
 import { GetCurrentSize } from '../utils/ViewportProvider'
 const Landing = () => {
   const size = GetCurrentSize()
@@ -12,13 +12,17 @@ const Landing = () => {
     q: '',
     a: ''
   })
+  const [bgImage, setBgImage] = useState(null)
 
   useEffect(() => {
-    const fetchQuote = async () => {
-      const q = await getQuote()
-      setQuote(q.data)
+    const fetch = async () => {
+      const q = await getQuote();
+      setQuote(q.data);
+      const image = await getRandomImage();
+      console.log(image)
+      await setBgImage(image.data);
     }
-    fetchQuote()
+    fetch()
 
     const timer = setInterval(() => {
       setDate(new Date())
@@ -40,25 +44,36 @@ const Landing = () => {
   const time = today.toLocaleTimeString(locale)
 
   return (
-
-        <div className="full-landing">
-            <div className="container">
-                <h1 className="landing">
-                    Tyler Richards
-                </h1>
+      
+         <div className="full-landing fade-in">
+          
+      <div className="container" >
+          {bgImage ? <img className="fade-in" src={bgImage?.urls.regular}></img> : null}
+          <h1 className="landing">
+              Tyler Richards
+          </h1>
+      </div>
+      <div className="bottom">
+          {bgImage ? <>
+          <div className="attr fade-in">
+            Photo by <a href={`${bgImage.user.html}?utm_source=TylerRichards&utm_medium=referral`}>
+            {bgImage.user.first_name} {bgImage.user.last_name} 
+            </a> on <a href={'https://unsplash.com/?utm_source=TylerRichards&utm_medium=referral'}>Unsplash</a>
             </div>
-            <div className="bottom">
-                <Nav classItems="headerNav" />
-                <div className='linebox'>
-                    <p className='side'>{date}</p>
-                    <p className='funbox '>
-                        <span className="sliding">{quote.q} - {quote.a}</span>
-                        {secondQuote && <span className="sliding">{quote.q} - {quote.a}</span>}</p>
+            </> : null}
+          <Nav classItems="headerNav" />
+          <div className='linebox'>
+              <p className='side'>{date}</p>
+              <p className='funbox '>
+                  <span className="sliding">{quote.q} - {quote.a}</span>
+                  {secondQuote && <span className="sliding">{quote.q} - {quote.a}</span>}</p>
 
-                    <p className='side'>{time}</p>
-                </div>
-            </div>
-        </div>
+              <p className='side'>{time}</p>
+          </div>
+      </div>
+     
+  </div>
+        
   )
 }
 

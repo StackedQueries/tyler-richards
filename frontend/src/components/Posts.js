@@ -21,7 +21,6 @@ const Posts = ({ posts, amount }) => {
       for (let j = 0; j < rowWidth; j++) {
         if (posts[i + j]) {
           temp.push([posts[i + j]])
-          console.log(posts[i + j])
         } else {
           temp.push([{
             kind: 'Post',
