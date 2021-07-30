@@ -18,9 +18,12 @@ const Landing = () => {
     const fetch = async () => {
       const q = await getQuote();
       setQuote(q.data);
+      try{
       const image = await getRandomImage();
-      console.log(image)
       await setBgImage(image.data);
+    } catch (err){
+      console.log(err)
+    }
     }
     fetch()
 
