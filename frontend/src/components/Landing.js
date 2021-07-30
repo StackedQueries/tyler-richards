@@ -59,7 +59,7 @@ const Landing = () => {
       <div className="bottom">
           {bgImage ? <>
           <div className="attr fade-in">
-            Photo by <a href={`${bgImage.user.html}?utm_source=TylerRichards&utm_medium=referral`}>
+            Photo by <a href={`${bgImage.user.links.html}?utm_source=TylerRichards&utm_medium=referral`}>
             {bgImage.user.first_name} {bgImage.user.last_name} 
             </a> on <a href={'https://unsplash.com/?utm_source=TylerRichards&utm_medium=referral'}>Unsplash</a>
             </div>
