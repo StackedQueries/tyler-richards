@@ -15,8 +15,13 @@ const Home = () => {
   useEffect(() => {
     dispatch(getPosts())
     const get = async () => {
+        try{
+            
       const projects = await getPostsbyTag('project')
       setProjects(projects.reverse())
+        } catch (err){
+            console.log(err)
+        }
     }
     get()
   }, [])
