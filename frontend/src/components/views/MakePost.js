@@ -28,14 +28,11 @@ const MakePost = (props) => {
   useEffect(() => {
     const get = async () => {
       await dispatch(getTags())
-
-      console.log(tags)
-      console.log(state)
-      console.log(postTags)
       if (postId) {
         console.log('test')
         const post = await getPost(postId)
-        console.log(post)
+        console.log(post.body)
+        setEditorState(EditorState.createWithContent(convertFromRaw({blocks: post.body.blocks, entityMap:{}})))
         setBody(post.body)
         setTitle(post.title)
         setDesc(post.desc)
