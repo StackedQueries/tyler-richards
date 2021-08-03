@@ -6,8 +6,9 @@ import ImageManager from '../ImageManager'
 import { useDispatch, useSelector } from 'react-redux'
 import { createPost, updatePost, getPost } from '../../actions/posts'
 import { getTags, createTag, deleteTag } from '../../actions/tags'
-
-import ContentEditor from '../ContentEditor'
+import { EditorState, convertFromRaw, convertToRaw, ContentState } from 'draft-js';
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const MakePost = (props) => {
   const dispatch = useDispatch()
@@ -18,6 +19,7 @@ const MakePost = (props) => {
   const [postTags, setPostTags] = useState([])
   const [newTag, setNewTag] = useState(null)
   const [image, setImage] = useState(null)
+  const [editorState, setEditorState] = useState(EditorState.createWithContent(ContentState.createFromText('Hello')));
   const history = useHistory()
 
   const { postId } = useParams()
@@ -47,7 +49,10 @@ const MakePost = (props) => {
 
   const saveData = (content) => {
     console.log(`setting body to ${JSON.stringify(content)}`)
-    setBody(content)
+    setEditorState(content)
+    setBody(convertToRaw(content.getCurrentContent()))
+    console.log(editorState)
+    console.log(body)
   }
 
   const onSubmit = async (e) => {
@@ -105,10 +110,13 @@ const MakePost = (props) => {
                 <label>body
 
                     {mounted && <div className="page-content">
-                        {postId
-                          ? <ContentEditor content={body} saveData={saveData}/>
-                          : <ContentEditor saveData={saveData}/>
-    }
+                        <Editor
+                          editorState={editorState}
+                          toolbarClassName="toolbarClassName"
+                          wrapperClassName="wrapperClassName"
+                          editorClassName="editorClassName"
+                          onEditorStateChange={saveData}
+                        />
                     </div>
                     }
                 </label>
