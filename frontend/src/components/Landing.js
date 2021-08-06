@@ -3,6 +3,7 @@ import Nav from './Nav'
 import React, { useState, useEffect, useRef } from 'react'
 import { getQuote, getRandomImage } from '../api'
 import { GetCurrentSize } from '../utils/ViewportProvider'
+import Marquee from "react-fast-marquee";
 const Landing = () => {
   const size = GetCurrentSize()
   const locale = 'en'
@@ -68,8 +69,10 @@ const Landing = () => {
           <div className='linebox'>
               <p className='side'>{date}</p>
               <p className='funbox '>
-                  <span className="sliding">{quote.q} - {quote.a}</span>
-                  {secondQuote && <span className="sliding">{quote.q} - {quote.a}</span>}</p>
+              <Marquee gradient={false} >
+                  <span>{quote.q} - {quote.a} </span>
+                   </Marquee>
+                  </p>
 
               <p className='side'>{time}</p>
           </div>

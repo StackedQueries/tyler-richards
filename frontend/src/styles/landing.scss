@@ -163,28 +163,6 @@ nav ul li
 
 }}
 
-.sliding {
-    white-space: nowrap; 
-    position:relative;
-    align-self: center;
-    right:-50vw;
-    animation: animate 30s linear infinite;
-  }
-  span{
-    animation-delay: -6s;
-  }
-  span:nth-of-type(2n){
-    animation-delay:6s;
-  }
-  @keyframes animate {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(-130vw, 0);
-    }
-  }
-
   .full-landing{
     display: flex;
     flex-flow: column;
