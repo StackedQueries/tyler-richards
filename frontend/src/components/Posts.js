@@ -1,4 +1,3 @@
-import Post from './Post'
 import ContentCard from './ContentCard'
 import { useEffect, useState } from 'react'
 import { GetCurrentSize } from '../utils/ViewportProvider'

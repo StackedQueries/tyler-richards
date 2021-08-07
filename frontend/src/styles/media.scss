@@ -10,7 +10,6 @@
 }
 .funbox{
     width: 100%;
-    border:none;
 }
 .project-title{
     font-size:20vw;
@@ -38,6 +37,9 @@
         flex-basis:20%;
     }
 
+}
+.funbox{
+    border:none;
 }
 .landing{
     

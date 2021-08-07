@@ -28,6 +28,13 @@ export const useViewport = () => {
 }
 
 export const GetCurrentSize = () => {
-  const { width, height } = React.useContext(viewportContext)
+  const { width } = React.useContext(viewportContext)
   return width < 641 ? 'small' : width < 1007 ? 'medium' : 'large'
 }
+
+export const GetCurrentWidth = () => {
+  const { width } = React.useContext(viewportContext)
+  return width
+}
+
+
