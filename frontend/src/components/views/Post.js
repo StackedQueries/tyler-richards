@@ -5,17 +5,22 @@ import {
 } from 'react-router-dom'
 import Footer from '../Footer'
 import { getPost } from '../../actions/posts'
-import ContentViewer from '../ContentViewer'
+
+import { Editor, EditorState, convertFromRaw, ContentState } from "draft-js";
 import Header from '../../components/Header'
 import '../../styles/post.scss'
 const Post = () => {
   const [post, setPost] = useState('')
   const { postId } = useParams()
 
+  const [editor, setEditorState] = useState(EditorState.createWithContent(ContentState.createFromText('Loading')));
+
   useEffect(() => {
     const get = async () => {
       const post = await getPost(postId)
       await setPost(post)
+      
+      setEditorState(EditorState.createWithContent(convertFromRaw({blocks: post.body.blocks, entityMap:{}})))
     }
     get()
   }, [])
@@ -30,7 +35,7 @@ const Post = () => {
                   ? <img width="75%" src={process.env.REACT_APP_API_URL + post.image.url}></img>
                   : null}
 
-                {post && <ContentViewer content={post.body} /> }
+                {post && <Editor editorState={editor} readOnly={true} /> }
                 </div>
 
             <Link to="/" className='button'>Return</Link>
